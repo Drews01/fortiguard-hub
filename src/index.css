@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,89 +10,145 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 220 20% 97%;
+    --foreground: 220 20% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 20% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 20% 10%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 220 70% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 15% 92%;
+    --secondary-foreground: 220 20% 10%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 15% 94%;
+    --muted-foreground: 220 10% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 220 15% 90%;
+    --accent-foreground: 220 20% 10%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 15% 85%;
+    --input: 220 15% 85%;
+    --ring: 220 70% 50%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Security theme colors */
+    --appctrl: 270 60% 55%;
+    --appctrl-foreground: 0 0% 100%;
+    --webfilter: 210 80% 50%;
+    --webfilter-foreground: 0 0% 100%;
+    --ips: 0 75% 55%;
+    --ips-foreground: 0 0% 100%;
+    --dns: 145 65% 40%;
+    --dns-foreground: 0 0% 100%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-background: 220 25% 12%;
+    --sidebar-foreground: 220 10% 90%;
+    --sidebar-primary: 220 70% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 18%;
+    --sidebar-accent-foreground: 220 10% 90%;
+    --sidebar-border: 220 20% 20%;
+    --sidebar-ring: 220 70% 50%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    --chart-1: 270 60% 55%;
+    --chart-2: 210 80% 50%;
+    --chart-3: 0 75% 55%;
+    --chart-4: 145 65% 40%;
+    --chart-5: 35 90% 55%;
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar: 220 25% 12%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    --font-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --shadow-2xs: 0 1px 2px 0 hsl(220 20% 10% / 0.03);
+    --shadow-xs: 0 1px 3px 0 hsl(220 20% 10% / 0.05);
+    --shadow-sm: 0 2px 4px 0 hsl(220 20% 10% / 0.05);
+    --shadow: 0 4px 6px -1px hsl(220 20% 10% / 0.08);
+    --shadow-md: 0 8px 15px -3px hsl(220 20% 10% / 0.1);
+    --shadow-lg: 0 15px 30px -5px hsl(220 20% 10% / 0.12);
+    --shadow-xl: 0 25px 50px -12px hsl(220 20% 10% / 0.15);
+    --shadow-2xl: 0 35px 60px -15px hsl(220 20% 10% / 0.2);
 
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --tracking-normal: 0em;
+    --spacing: 0.25rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 220 25% 8%;
+    --foreground: 220 10% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 25% 12%;
+    --card-foreground: 220 10% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 25% 12%;
+    --popover-foreground: 220 10% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 220 70% 55%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 220 10% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 10% 55%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 220 20% 18%;
+    --accent-foreground: 220 10% 95%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 220 70% 55%;
+
+    /* Security theme colors - dark mode */
+    --appctrl: 270 65% 60%;
+    --appctrl-foreground: 0 0% 100%;
+    --webfilter: 210 85% 55%;
+    --webfilter-foreground: 0 0% 100%;
+    --ips: 0 80% 60%;
+    --ips-foreground: 0 0% 100%;
+    --dns: 145 70% 45%;
+    --dns-foreground: 0 0% 100%;
+
+    --sidebar-background: 220 25% 6%;
+    --sidebar-foreground: 220 10% 90%;
+    --sidebar-primary: 220 70% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 220 20% 12%;
+    --sidebar-accent-foreground: 220 10% 90%;
+    --sidebar-border: 220 20% 15%;
+    --sidebar-ring: 220 70% 55%;
+
+    --chart-1: 270 65% 60%;
+    --chart-2: 210 85% 55%;
+    --chart-3: 0 80% 60%;
+    --chart-4: 145 70% 45%;
+    --chart-5: 35 90% 60%;
+
+    --sidebar: 220 25% 6%;
+    --radius: 0.5rem;
+
+    --shadow-2xs: 0 1px 2px 0 hsl(220 30% 5% / 0.2);
+    --shadow-xs: 0 1px 3px 0 hsl(220 30% 5% / 0.3);
+    --shadow-sm: 0 2px 4px 0 hsl(220 30% 5% / 0.3);
+    --shadow: 0 4px 6px -1px hsl(220 30% 5% / 0.4);
+    --shadow-md: 0 8px 15px -3px hsl(220 30% 5% / 0.5);
+    --shadow-lg: 0 15px 30px -5px hsl(220 30% 5% / 0.6);
+    --shadow-xl: 0 25px 50px -12px hsl(220 30% 5% / 0.7);
+    --shadow-2xl: 0 35px 60px -15px hsl(220 30% 5% / 0.8);
   }
 }
 
