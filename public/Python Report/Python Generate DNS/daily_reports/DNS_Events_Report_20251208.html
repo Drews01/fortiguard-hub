@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>DNS Events - 2025-12-08</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial; margin:40px; background:#f8f9fa; }
+        .container { max-width:1500px; margin:auto; background:white; padding:30px; border-radius:10px; box-shadow:0 0 20px rgba(0,0,0,0.1); }
+        h1 { color:#e74c3c; text-align:center; }
+        .stats { background:#f0f2f5; padding:20px; border-radius:8px; }
+        table { width:100%; border-collapse:collapse; margin:25px 0; }
+        th, td { border:1px solid #ddd; padding:12px; text-align:left; }
+        th { background:#e74c3c; color:white; }
+        tr:nth-child(even) { background:#f9f9f9; }
+        .pie { width:400px; height:400px; margin:30px auto; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>DNS (Domain Name System) Events</h1>
+    <p style="text-align:center; font-size:1.8em; color:#e74c3c;">
+        Monday, 08 December 2025 ← SELECTED DATE REPORT
+    </p>
+    <div class="stats">
+        <b>Log File:</b> disk-dns-2025_12_08.log<br>
+        <b>Total Threat Events:</b> 4,090<br>
+        <b>Notable Malicious Events:</b> <span style="color:#e74c3c; font-size:1.5em;">177</span>
+    </div>
+
+    <div style="display:flex; flex-wrap:wrap; gap:30px; justify-content:space-around;">
+        <div>
+            <h2>Top Categories</h2>
+            <table><tr><th>Category</th><th>Count</th></tr>
+            <tr><td>Pornography</td><td>133</td></tr><tr><td>Gambling</td><td>44</td></tr>
+            </table>
+        </div>
+
+        <div class="pie"><canvas id="pie"></canvas></div>
+
+        <div>
+            <h2>Top 10 Malicious Domains</h2>
+            <table><tr><th>FQDN</th><th>Action</th><th>Count</th></tr>
+            <tr><td>web.whatsapp.com</td><td>pass</td><td>44</td></tr><tr><td>g.whatsapp.net</td><td>pass</td><td>21</td></tr><tr><td>mmx-ds.cdn.whatsapp.net</td><td>pass</td><td>19</td></tr><tr><td>chat.cdn.whatsapp.net</td><td>pass</td><td>18</td></tr><tr><td>media-cgk1-1.cdn.whatsapp.net</td><td>pass</td><td>15</td></tr><tr><td>mtalk.google.com</td><td>pass</td><td>12</td></tr><tr><td>media.fcgk6-3.fna.whatsapp.net</td><td>pass</td><td>10</td></tr><tr><td>media.fcgk6-2.fna.whatsapp.net</td><td>pass</td><td>9</td></tr><tr><td>dit.whatsapp.net</td><td>pass</td><td>8</td></tr><tr><td>graph.whatsapp.com</td><td>pass</td><td>6</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        new Chart(document.getElementById('pie'), {
+            type: 'pie',
+            data: { labels: ['Pornography<br>133', 'Gambling<br>44'], datasets: [{ data: [133, 44], 
+                backgroundColor: ['#e74c3c','#e67e22','#f1c40f','#27ae60','#3498db','#9b59b6','#1abc9c','#34495e'] }] },
+            options: { responsive:true, plugins:{legend:{position:'right'}} }
+        });
+    </script>
+</div>
+</body>
+</html>

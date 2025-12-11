@@ -1,73 +1,104 @@
-# Welcome to your Lovable project
+# FortiGuard Hub — FortiGate Security Portal
 
-## Project info
+This repository contains a React + Vite + Tailwind + shadcn/ui frontend and a FastAPI backend
+for viewing FortiGate-generated HTML reports. It supports four report types: Application Control,
+Web Filter, IPS, and DNS. The frontend serves static report files from `public/Python Report/...`
+and the backend provides secure upload and asynchronous report generation endpoints.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Repository layout (relevant)
 
-## How can I edit this code?
+- `public/Python Report/` — contains the per-report-type folders and generated HTML files
+	- `Python Generate WebFilter/`
+	- `Python Generate DNS/`
+	- `Python Generate Intrusion/`
+	- `Python Reports Application/`
+	Each of those folders should contain:
+	- `generate_daily.py` (generator script)
+	- `generate_monthly.py`
+	- `Raw Logs/` (where uploaded raw logs are stored)
+	- `daily_reports/` (generated daily HTML files)
+	- `monthly_reports/` (generated monthly HTML files)
 
-There are several ways of editing your application.
+## New features added
 
-**Use Lovable**
+1. Upload Raw Logs
+	 - Frontend: Dashboard card `Upload Raw Logs` (shadcn/ui)
+	 - Endpoint: `POST /api/upload/{type}`
+		 - Accepts `multipart/form-data` file field named `file`.
+		 - Allowed extensions: `.log`, `.txt`.
+		 - Server sanitizes filename, prefixes with UTC timestamp, enforces size limit (10 MB),
+			 and saves to `public/Python Report/<folder>/Raw Logs/`.
+		 - Returns JSON `{ message: 'uploaded', filename, path }` on success.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+2. Generate Reports
+	 - Frontend: Dashboard card `Generate Reports` with Daily/Monthly mode and type selector.
+	 - Endpoint: `POST /api/generate/{mode}/{type}` where `mode` is `daily` or `monthly`.
+		 - The server schedules an asynchronous background task that executes the matching
+			 script (`generate_daily.py` or `generate_monthly.py`) using the same Python interpreter
+			 that runs FastAPI (no shell execution), with `cwd` set to the report folder.
+		 - The process stdout/stderr and return code are captured and written to
+			 `public/Python Report/<folder>/error_logs/generate_{mode}_{timestamp}.log`.
+		 - The endpoint returns quickly with `{ message: 'started', mode, type }`.
 
-Changes made via Lovable will be committed automatically to this repo.
+## Running locally
 
-**Use your preferred IDE**
+1. Install backend dependencies and start FastAPI (from project root `backend/`):
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+```pwsh
+# inside c:\Users\Andrew\Desktop\Python Dashboard\fortiguard-hub\backend
+pip install fastapi uvicorn
+uvicorn main:app --reload --host 127.0.0.1 --port 8000
+```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+2. Install frontend deps and run Vite (project root):
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```pwsh
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+3. Open the frontend in your browser (default Vite port 5173) and navigate to the Dashboard.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Endpoints
 
-**Use GitHub Codespaces**
+- `GET /api/reports/{type}/daily` — lists available daily reports (JSON)
+- `GET /api/reports/{type}/monthly` — lists available monthly reports (JSON)
+- `GET /api/serve/{type}/{period}/{filename}` — serves an HTML report file (safe path)
+- `POST /api/upload/{type}` — upload raw log (`multipart/form-data` `file`)
+- `POST /api/generate/{mode}/{type}` — start generation (`mode`=`daily`|`monthly`)
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Example: upload a webfilter log
 
-## What technologies are used for this project?
+```pwsh
+curl -F "file=@C:\path\to\my.log" http://127.0.0.1:8000/api/upload/webfilter
+```
 
-This project is built with:
+Start a daily generation for DNS:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```pwsh
+curl -X POST http://127.0.0.1:8000/api/generate/daily/dns
+```
 
-## How can I deploy this project?
+## Security notes
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+- Filename sanitization: server strips path components and unsafe characters.
+- Extension whitelist: only `.log` and `.txt` uploads are accepted.
+- Size limits: uploads are capped (default 10 MB).
+- Script execution: generators are executed without a shell using `subprocess.run([sys.executable, script])` and with `cwd` set to the report folder to prevent command injection.
+- The backend writes generator output to `error_logs/` for audit and troubleshooting.
 
-## Can I connect a custom domain to my Lovable project?
+## Troubleshooting
 
-Yes, you can!
+- If the frontend shows `{"detail":"Not Found"}` when opening a report, ensure the backend is running and that generator-created HTML files exist in the expected `daily_reports/` or `monthly_reports/` folders.
+- Check backend logs printed on startup — the server will report which report folders were found or missing.
+- Inspect `public/Python Report/<folder>/error_logs/` for generator stdout/stderr logs.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Next steps / optional improvements
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- Add an authenticated admin UI to view and download `error_logs` and recent uploads.
+- Implement a job queue (Redis + RQ or Celery) for better generation reliability, retries, and visibility.
+- Add rate limiting and authentication to the upload/generate endpoints for production use.
+
+---
+
+If you want, I can also add README examples for CI/deployment, or wire up a small admin panel to view generator logs directly in the UI.

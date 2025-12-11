@@ -121,14 +121,14 @@ export function ReportViewer({ path, filename, type }: ReportViewerProps) {
     dns: 'border-dns/30',
   };
 
-  if (!path && !isDemo) {
+  if (!path) {
     return (
       <Card className="flex h-[600px] flex-col items-center justify-center gap-4 border-dashed">
         <FileX className="h-16 w-16 text-muted-foreground/50" />
         <div className="text-center">
-          <h3 className="text-lg font-semibold">No Report Selected</h3>
+          <h3 className="text-lg font-semibold">The report not generated</h3>
           <p className="text-sm text-muted-foreground">
-            Select a date or month to view the report
+            This report has not been generated yet. Please generate it first.
           </p>
         </div>
       </Card>

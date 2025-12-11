@@ -26,7 +26,9 @@ This is the Python FastAPI backend for the FortiGate Security Portal.
 
 3. **Run the server:**
    ```bash
-   uvicorn main:app --reload --host 127.0.0.1 --port 8000
+   uvicorn main:app --reload --host 127.0.0.1 --port 8000 ## For BackEnd
+   python -m uvicorn main:app --reload --port 8000 ##For Backend
+   npm run dev ## For FrontEnd
    ```
 
 4. **Enable the frontend connection:**

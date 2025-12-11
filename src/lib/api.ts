@@ -31,7 +31,7 @@ const MOCK_DAILY_DATES = generateMockDates(30);
 const MOCK_MONTHLY_MONTHS = generateMockMonths(6);
 
 // Demo mode flag - set to false when backend is running
-const DEMO_MODE = true;
+const DEMO_MODE = false;
 
 export async function fetchDailyReports(type: ReportType): Promise<DailyReport[]> {
   if (DEMO_MODE) {
@@ -90,6 +90,19 @@ export function getReportFileUrl(path: string): string {
     // In demo mode, return a placeholder
     return '';
   }
+  // If the backend already returned an API serving path (e.g. "/api/serve/.."),
+  // build a full URL using the same host as API_BASE. Otherwise fall back
+  // to the legacy file endpoint format.
+  try {
+    if (path.startsWith('/api/')) {
+      // API_BASE contains the trailing '/api' segment; replace it with host
+      const host = API_BASE.replace(/\/api$/, '');
+      return `${host}${path}`;
+    }
+  } catch (e) {
+    // ignore and fall back
+  }
+
   return `${API_BASE}/file?path=${encodeURIComponent(path)}`;
 }
 

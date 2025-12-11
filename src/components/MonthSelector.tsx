@@ -1,40 +1,43 @@
-import { Calendar } from 'lucide-react';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
+import React from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 interface MonthSelectorProps {
-  value: string | undefined;
+  value: string | undefined; // 'YYYY-MM'
   onValueChange: (value: string) => void;
-  availableMonths: string[];
+  availableMonths?: string[]; // optional, not required for datepicker
 }
 
-export function MonthSelector({ value, onValueChange, availableMonths }: MonthSelectorProps) {
-  const formatMonth = (month: string) => {
-    const [year, m] = month.split('-');
-    const date = new Date(parseInt(year), parseInt(m) - 1);
-    return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+export function MonthSelector({ value, onValueChange }: MonthSelectorProps) {
+  // Parse incoming value 'YYYY-MM' to Date
+  const parse = (v?: string) => {
+    if (!v) return new Date();
+    const parts = v.split('-');
+    if (parts.length !== 2) return new Date();
+    const y = parseInt(parts[0], 10);
+    const m = parseInt(parts[1], 10) - 1;
+    return new Date(y, m, 1);
+  };
+
+  const selected = parse(value);
+
+  const handleChange = (date: Date | null) => {
+    if (!date) return;
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, '0');
+    onValueChange(`${y}-${m}`);
   };
 
   return (
-    <Select value={value} onValueChange={onValueChange}>
-      <SelectTrigger className="w-full">
-        <div className="flex items-center gap-2">
-          <Calendar className="h-4 w-4 text-muted-foreground" />
-          <SelectValue placeholder="Select a month" />
-        </div>
-      </SelectTrigger>
-      <SelectContent className="bg-popover">
-        {availableMonths.map((month) => (
-          <SelectItem key={month} value={month}>
-            {formatMonth(month)}
-          </SelectItem>
-        ))}
-      </SelectContent>
-    </Select>
+    <DatePicker
+      selected={selected}
+      onChange={handleChange}
+      dateFormat="MM/yyyy"
+      showMonthYearPicker
+      showFullMonthYearPicker={false}
+      className="w-full"
+    />
   );
 }
+
+export default MonthSelector;

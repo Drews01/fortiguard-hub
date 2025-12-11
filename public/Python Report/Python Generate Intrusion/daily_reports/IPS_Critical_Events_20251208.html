@@ -1,0 +1,3086 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>FortiGate IPS Critical Events - 2025-12-08</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 40px; background: #f8f9fa; }
+            .container { max-width: 1500px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+            h1 { color: #e74c3c; text-align: center; }
+            h2 { color: #c0392b; border-bottom: 3px solid #eee; padding-bottom: 10px; }
+            .stats { background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 30px; border-radius: 12px; text-align: center; font-size: 1.5em; }
+            .stats span { font-size: 3em; font-weight: bold; display: block; margin: 10px 0; }
+            .table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 0.95em; }
+            .table th, .table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+            .table th { background-color: #e74c3c; color: white; text-align: center !important; }
+            .table tr:nth-child(even) { background-color: #f9f9f9; }
+            .highlight { background-color: #fff5f5 !important; font-weight: bold; }
+            footer { text-align: center; margin-top: 60px; color: #7f8c8d; }
+        </style>
+    </head>
+    <body>
+    <div class="container">
+        <h1>IPS (Intrusion Prevention System) Events</h1>
+        <p style="text-align:center; font-size:1.3em;">
+            FortiGate UTM has IPS (Intrusion Prevention System) which detects then prevents attacks by analysing packets of data, 
+            looking for patterns known to exist in threats, and stops the attack once recognized.
+        </p>
+        <p style="text-align:center; font-size:2em; color:#e74c3c; font-weight:bold;">
+            Monday, 08 December 2025 ← YESTERDAY'S REPORT
+        </p>
+
+        <div class="stats">
+            <span>300</span>
+            Total Critical IPS Events in 24 hours
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:30px; margin-top:40px;">
+            <div style="flex:2;">
+                <h2>Top 10 Critical Attacks</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Attack Name</th>
+                            <th>Action</th>
+                            <th>Count</th>
+                            <th>Source IP</th>
+                            <th>Country</th>
+                            <th>Target IP</th>
+                            <th>Service</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr class='highlight'><td><strong>HTTP.URI.SQL.Injection</strong></td><td>Dropped</td><td><strong>129</strong></td><td>10.10.40.25</td><td>Reserved</td><td>10.10.30.146</td><td>HTTP</td></tr><tr class='highlight'><td><strong>Remote.CMD.Shell</strong></td><td>Dropped</td><td><strong>24</strong></td><td>10.10.40.25</td><td>Reserved</td><td>10.10.30.146</td><td>HTTP</td></tr><tr class='highlight'><td><strong>Bash.Function.Definitions.Remote.Code.Execution</strong></td><td>Dropped</td><td><strong>16</strong></td><td>10.10.40.25</td><td>Reserved</td><td>10.10.30.146</td><td>HTTP</td></tr><tr class='highlight'><td><strong>HTTP.Header.SQL.Injection</strong></td><td>Dropped</td><td><strong>13</strong></td><td>10.10.40.25</td><td>Reserved</td><td>10.10.30.146</td><td>HTTP</td></tr><tr class='highlight'><td><strong>Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</strong></td><td>Dropped</td><td><strong>12</strong></td><td>10.10.40.25</td><td>Reserved</td><td>10.10.30.146</td><td>HTTP</td></tr><tr class='highlight'><td><strong>Ivanti.Avalanche.RCS.updateSkin.Path.Traversal</strong></td><td>Dropped</td><td><strong>10</strong></td><td>10.10.40.25</td><td>Reserved</td><td>10.10.30.146</td><td>HTTP</td></tr><tr class='highlight'><td><strong>Apache.mod_jk.Connector.Authentication.Bypass</strong></td><td>Dropped</td><td><strong>10</strong></td><td>10.10.40.25</td><td>Reserved</td><td>10.10.30.146</td><td>HTTP</td></tr><tr class='highlight'><td><strong>Juniper.Networks.Junos.OS.PHPRC.ENV.VAR.Remote.Code.Injection</strong></td><td>Dropped</td><td><strong>10</strong></td><td>10.10.40.25</td><td>Reserved</td><td>10.10.30.146</td><td>HTTP</td></tr><tr class='highlight'><td><strong>D-Link.D-View.JWT.Static.Key.Authentication.Bypass</strong></td><td>Dropped</td><td><strong>10</strong></td><td>10.10.40.25</td><td>Reserved</td><td>10.10.30.146</td><td>HTTP</td></tr><tr class='highlight'><td><strong>Ivanti.Sentry.MICS.Portal.Authentication.Bypass</strong></td><td>Dropped</td><td><strong>10</strong></td><td>10.10.40.25</td><td>Reserved</td><td>10.10.30.146</td><td>HTTP</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h2>All Critical IPS Events (Latest First)</h2>
+        <table class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>datetime</th>
+      <th>attack</th>
+      <th>action</th>
+      <th>srcip</th>
+      <th>srccountry</th>
+      <th>dstip</th>
+      <th>service</th>
+      <th>msg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-12-09 04:03:12</td>
+      <td>Shenzhen.TVT.NVMS-9000.Information.Disclosure</td>
+      <td>dropped</td>
+      <td>176.65.149.154</td>
+      <td>Netherlands</td>
+      <td>10.10.40.15</td>
+      <td>Port-9090</td>
+      <td>applications3: Shenzhen.TVT.NVMS-9000.Information.Disclosure</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:42:42</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:42:09</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:41:36</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:41:03</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:40:30</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:39:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:39:23</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:38:50</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:38:17</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:37:44</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:37:11</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:36:38</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:36:05</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:35:32</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:30:30</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:29:57</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:29:24</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:28:51</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:28:17</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:27:44</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:27:12</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:26:26</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:25:53</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:25:20</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:24:47</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:24:14</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:23:41</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:23:08</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:22:35</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:21:13</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:20:43</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:20:13</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:20:06</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:19:43</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:19:13</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:18:15</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:17:44</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:07:11</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:06:41</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:06:11</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:05:41</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:05:11</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:04:41</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:04:11</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:03:41</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:03:11</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:02:41</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:02:11</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:01:41</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:01:11</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:00:41</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 21:00:11</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:59:40</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:59:11</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:58:41</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:58:11</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:57:41</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:57:11</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:56:41</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:56:11</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:55:41</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:55:11</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:54:41</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:54:11</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:53:41</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:53:10</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:52:28</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:51:58</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:51:28</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:50:58</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>103.6.117.25</td>
+      <td>Indonesia</td>
+      <td>10.10.40.25</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:37:27</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:33:38</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:33:16</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:32:37</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:31:13</td>
+      <td>HTTP.Header.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.Header.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:29:11</td>
+      <td>HTTP.Header.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.Header.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:28:49</td>
+      <td>HTTP.Header.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.Header.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:27:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:27:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:27:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:27:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:27:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:27:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:26:47</td>
+      <td>HTTP.Header.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.Header.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:26:25</td>
+      <td>HTTP.Header.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.Header.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:25:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:25:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:25:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:25:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:25:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:25:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:25:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:25:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:25:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:25:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:24:23</td>
+      <td>HTTP.Header.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.Header.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:24:01</td>
+      <td>HTTP.Header.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.Header.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:23:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:23:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:23:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:23:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:23:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:23:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:23:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:23:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:23:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:23:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:22:00</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:21:38</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:19:36</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:19:14</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:16:40</td>
+      <td>HTTP.URI.Parameters.Command.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>operating_system: HTTP.URI.Parameters.Command.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:16:17</td>
+      <td>HTTP.URI.Parameters.Command.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>operating_system: HTTP.URI.Parameters.Command.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:14:16</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:12:15</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:03:21</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:02:59</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:00:58</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 20:00:36</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 17:06:02</td>
+      <td>SilentCryptoMiner.Malware</td>
+      <td>dropped</td>
+      <td>10.10.90.209</td>
+      <td>Reserved</td>
+      <td>144.31.221.85</td>
+      <td>HTTP</td>
+      <td>backdoor: SilentCryptoMiner.Malware</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 17:05:50</td>
+      <td>Shenzhen.TVT.NVMS-9000.Information.Disclosure</td>
+      <td>dropped</td>
+      <td>176.65.149.154</td>
+      <td>Netherlands</td>
+      <td>10.10.40.15</td>
+      <td>Port-9090</td>
+      <td>applications3: Shenzhen.TVT.NVMS-9000.Information.Disclosure</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 17:01:56</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:59:44</td>
+      <td>HTTP.Header.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.Header.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:57:36</td>
+      <td>Bash.Function.Definitions.Remote.Code.Execution</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Bash.Function.Definitions.Remote.Code.Execution</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:55:36</td>
+      <td>Bash.Function.Definitions.Remote.Code.Execution</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Bash.Function.Definitions.Remote.Code.Execution</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:53:24</td>
+      <td>Bash.Function.Definitions.Remote.Code.Execution</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Bash.Function.Definitions.Remote.Code.Execution</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:51:23</td>
+      <td>Bash.Function.Definitions.Remote.Code.Execution</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Bash.Function.Definitions.Remote.Code.Execution</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:49:19</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:47:18</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:45:11</td>
+      <td>HTTP.Header.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.Header.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:42:59</td>
+      <td>Bash.Function.Definitions.Remote.Code.Execution</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Bash.Function.Definitions.Remote.Code.Execution</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:42:06</td>
+      <td>Ruckus.ICX.Switches.Referer.Header.XSS</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ruckus.ICX.Switches.Referer.Header.XSS</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:41:33</td>
+      <td>Ruckus.ICX.Switches.Referer.Header.XSS</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ruckus.ICX.Switches.Referer.Header.XSS</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:40:57</td>
+      <td>Bash.Function.Definitions.Remote.Code.Execution</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Bash.Function.Definitions.Remote.Code.Execution</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:40:05</td>
+      <td>Ruckus.ICX.Switches.Referer.Header.XSS</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ruckus.ICX.Switches.Referer.Header.XSS</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:39:32</td>
+      <td>Ruckus.ICX.Switches.Referer.Header.XSS</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ruckus.ICX.Switches.Referer.Header.XSS</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:38:45</td>
+      <td>Bash.Function.Definitions.Remote.Code.Execution</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Bash.Function.Definitions.Remote.Code.Execution</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:38:34</td>
+      <td>Ruckus.ICX.Switches.Referer.Header.XSS</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ruckus.ICX.Switches.Referer.Header.XSS</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:36:45</td>
+      <td>HTTP.Header.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.Header.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:36:33</td>
+      <td>Ruckus.ICX.Switches.Referer.Header.XSS</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ruckus.ICX.Switches.Referer.Header.XSS</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:34:45</td>
+      <td>Bash.Function.Definitions.Remote.Code.Execution</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Bash.Function.Definitions.Remote.Code.Execution</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:32:38</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:31:46</td>
+      <td>Ivanti.Connect.Secure.Policy.Secure.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ivanti.Connect.Secure.Policy.Secure.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:31:11</td>
+      <td>Alibaba.Nacos.AuthFilter.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_app3: Alibaba.Nacos.AuthFilter.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:30:59</td>
+      <td>Adobe.ColdFusion.ToTemplateProxy.Insecure.Deserialization</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Adobe.ColdFusion.ToTemplateProxy.Insecure.Deserialization</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:30:43</td>
+      <td>Juniper.Networks.Junos.OS.PHPRC.ENV.VAR.Remote.Code.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Juniper.Networks.Junos.OS.PHPRC.ENV.VAR.Remote.Code.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:30:37</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:30:30</td>
+      <td>PHP.User.Agent.Backdoor.Command.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_app: PHP.User.Agent.Backdoor.Command.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:30:18</td>
+      <td>Apache.mod_jk.Connector.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>apache: Apache.mod_jk.Connector.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:30:11</td>
+      <td>Ivanti.Avalanche.RCS.updateSkin.Path.Traversal</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ivanti.Avalanche.RCS.updateSkin.Path.Traversal</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:30:00</td>
+      <td>D-Link.D-View.JWT.Static.Key.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: D-Link.D-View.JWT.Static.Key.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:29:50</td>
+      <td>Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:29:46</td>
+      <td>Ivanti.Sentry.MICS.Portal.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_client: Ivanti.Sentry.MICS.Portal.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:29:46</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:28:36</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:26:39</td>
+      <td>Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:26:39</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:26:35</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:26:31</td>
+      <td>Ivanti.Connect.Secure.Policy.Secure.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ivanti.Connect.Secure.Policy.Secure.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:26:07</td>
+      <td>Juniper.Networks.Junos.OS.PHPRC.ENV.VAR.Remote.Code.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Juniper.Networks.Junos.OS.PHPRC.ENV.VAR.Remote.Code.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:25:41</td>
+      <td>Ivanti.Sentry.MICS.Portal.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_client: Ivanti.Sentry.MICS.Portal.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:25:27</td>
+      <td>Ivanti.Avalanche.RCS.updateSkin.Path.Traversal</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ivanti.Avalanche.RCS.updateSkin.Path.Traversal</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:25:21</td>
+      <td>D-Link.D-View.JWT.Static.Key.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: D-Link.D-View.JWT.Static.Key.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:25:19</td>
+      <td>Apache.mod_jk.Connector.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>apache: Apache.mod_jk.Connector.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:24:42</td>
+      <td>D-Link.D-View.JWT.Static.Key.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: D-Link.D-View.JWT.Static.Key.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:24:39</td>
+      <td>Alibaba.Nacos.AuthFilter.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_app3: Alibaba.Nacos.AuthFilter.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:24:38</td>
+      <td>Adobe.ColdFusion.ToTemplateProxy.Insecure.Deserialization</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Adobe.ColdFusion.ToTemplateProxy.Insecure.Deserialization</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:24:38</td>
+      <td>PHP.User.Agent.Backdoor.Command.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_app: PHP.User.Agent.Backdoor.Command.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:24:35</td>
+      <td>Juniper.Networks.Junos.OS.PHPRC.ENV.VAR.Remote.Code.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Juniper.Networks.Junos.OS.PHPRC.ENV.VAR.Remote.Code.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:24:07</td>
+      <td>Apache.mod_jk.Connector.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>apache: Apache.mod_jk.Connector.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:24:01</td>
+      <td>Ivanti.Connect.Secure.Policy.Secure.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ivanti.Connect.Secure.Policy.Secure.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:23:21</td>
+      <td>Adobe.ColdFusion.ToTemplateProxy.Insecure.Deserialization</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Adobe.ColdFusion.ToTemplateProxy.Insecure.Deserialization</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:23:21</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:23:17</td>
+      <td>PHP.User.Agent.Backdoor.Command.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_app: PHP.User.Agent.Backdoor.Command.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:23:11</td>
+      <td>Alibaba.Nacos.AuthFilter.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_app3: Alibaba.Nacos.AuthFilter.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:22:41</td>
+      <td>Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:22:38</td>
+      <td>Ivanti.Avalanche.RCS.updateSkin.Path.Traversal</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ivanti.Avalanche.RCS.updateSkin.Path.Traversal</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:22:36</td>
+      <td>Ivanti.Sentry.MICS.Portal.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_client: Ivanti.Sentry.MICS.Portal.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:22:36</td>
+      <td>Juniper.Networks.Junos.OS.PHPRC.ENV.VAR.Remote.Code.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Juniper.Networks.Junos.OS.PHPRC.ENV.VAR.Remote.Code.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:22:32</td>
+      <td>Adobe.ColdFusion.ToTemplateProxy.Insecure.Deserialization</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Adobe.ColdFusion.ToTemplateProxy.Insecure.Deserialization</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:20:32</td>
+      <td>Alibaba.Nacos.AuthFilter.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_app3: Alibaba.Nacos.AuthFilter.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:18:25</td>
+      <td>HTTP.Header.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.Header.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:16:23</td>
+      <td>Apache.mod_jk.Connector.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>apache: Apache.mod_jk.Connector.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:14:20</td>
+      <td>Alibaba.Nacos.AuthFilter.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_app3: Alibaba.Nacos.AuthFilter.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:12:17</td>
+      <td>PHP.User.Agent.Backdoor.Command.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_app: PHP.User.Agent.Backdoor.Command.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:10:06</td>
+      <td>HTTP.Header.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.Header.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:10:00</td>
+      <td>Apache.mod_jk.Connector.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>apache: Apache.mod_jk.Connector.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:09:56</td>
+      <td>PHP.User.Agent.Backdoor.Command.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_app: PHP.User.Agent.Backdoor.Command.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:09:53</td>
+      <td>Ivanti.Connect.Secure.Policy.Secure.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ivanti.Connect.Secure.Policy.Secure.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:09:40</td>
+      <td>HTTP.Header.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.Header.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:08:09</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:08:05</td>
+      <td>Ivanti.Connect.Secure.Policy.Secure.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ivanti.Connect.Secure.Policy.Secure.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:08:02</td>
+      <td>Ivanti.Avalanche.RCS.updateSkin.Path.Traversal</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ivanti.Avalanche.RCS.updateSkin.Path.Traversal</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:08:00</td>
+      <td>D-Link.D-View.JWT.Static.Key.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: D-Link.D-View.JWT.Static.Key.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:07:59</td>
+      <td>Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:07:58</td>
+      <td>Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:07:56</td>
+      <td>Juniper.Networks.Junos.OS.PHPRC.ENV.VAR.Remote.Code.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Juniper.Networks.Junos.OS.PHPRC.ENV.VAR.Remote.Code.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:07:55</td>
+      <td>Alibaba.Nacos.AuthFilter.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_app3: Alibaba.Nacos.AuthFilter.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:07:53</td>
+      <td>Ivanti.Sentry.MICS.Portal.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_client: Ivanti.Sentry.MICS.Portal.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:07:53</td>
+      <td>PHP.User.Agent.Backdoor.Command.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_app: PHP.User.Agent.Backdoor.Command.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:07:38</td>
+      <td>Bash.Function.Definitions.Remote.Code.Execution</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Bash.Function.Definitions.Remote.Code.Execution</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:06:09</td>
+      <td>Alibaba.Nacos.AuthFilter.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_app3: Alibaba.Nacos.AuthFilter.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:06:01</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:05:57</td>
+      <td>Adobe.ColdFusion.ToTemplateProxy.Insecure.Deserialization</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Adobe.ColdFusion.ToTemplateProxy.Insecure.Deserialization</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:05:56</td>
+      <td>Juniper.Networks.Junos.OS.PHPRC.ENV.VAR.Remote.Code.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Juniper.Networks.Junos.OS.PHPRC.ENV.VAR.Remote.Code.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:05:55</td>
+      <td>D-Link.D-View.JWT.Static.Key.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: D-Link.D-View.JWT.Static.Key.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:05:55</td>
+      <td>Ivanti.Avalanche.RCS.updateSkin.Path.Traversal</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ivanti.Avalanche.RCS.updateSkin.Path.Traversal</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:05:54</td>
+      <td>Adobe.ColdFusion.ToTemplateProxy.Insecure.Deserialization</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Adobe.ColdFusion.ToTemplateProxy.Insecure.Deserialization</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:05:54</td>
+      <td>Apache.mod_jk.Connector.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>apache: Apache.mod_jk.Connector.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:05:52</td>
+      <td>Juniper.Networks.Junos.OS.PHPRC.ENV.VAR.Remote.Code.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Juniper.Networks.Junos.OS.PHPRC.ENV.VAR.Remote.Code.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:05:52</td>
+      <td>Ivanti.Sentry.MICS.Portal.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_client: Ivanti.Sentry.MICS.Portal.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:05:36</td>
+      <td>Bash.Function.Definitions.Remote.Code.Execution</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Bash.Function.Definitions.Remote.Code.Execution</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:03:56</td>
+      <td>Adobe.ColdFusion.ToTemplateProxy.Insecure.Deserialization</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Adobe.ColdFusion.ToTemplateProxy.Insecure.Deserialization</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:03:54</td>
+      <td>Apache.mod_jk.Connector.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>apache: Apache.mod_jk.Connector.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:03:54</td>
+      <td>PHP.User.Agent.Backdoor.Command.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_app: PHP.User.Agent.Backdoor.Command.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:03:54</td>
+      <td>Ivanti.Connect.Secure.Policy.Secure.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ivanti.Connect.Secure.Policy.Secure.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:03:53</td>
+      <td>Ivanti.Avalanche.RCS.updateSkin.Path.Traversal</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ivanti.Avalanche.RCS.updateSkin.Path.Traversal</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:03:53</td>
+      <td>Alibaba.Nacos.AuthFilter.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_app3: Alibaba.Nacos.AuthFilter.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:03:52</td>
+      <td>Ivanti.Sentry.MICS.Portal.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_client: Ivanti.Sentry.MICS.Portal.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:03:52</td>
+      <td>Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:03:52</td>
+      <td>D-Link.D-View.JWT.Static.Key.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: D-Link.D-View.JWT.Static.Key.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:03:51</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:03:24</td>
+      <td>Bash.Function.Definitions.Remote.Code.Execution</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Bash.Function.Definitions.Remote.Code.Execution</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 16:01:23</td>
+      <td>Bash.Function.Definitions.Remote.Code.Execution</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Bash.Function.Definitions.Remote.Code.Execution</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:59:18</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:57:17</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:55:12</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:54:49</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:52:40</td>
+      <td>Bash.Function.Definitions.Remote.Code.Execution</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Bash.Function.Definitions.Remote.Code.Execution</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:50:40</td>
+      <td>Bash.Function.Definitions.Remote.Code.Execution</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Bash.Function.Definitions.Remote.Code.Execution</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:48:35</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:48:12</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:46:07</td>
+      <td>Bash.Function.Definitions.Remote.Code.Execution</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Bash.Function.Definitions.Remote.Code.Execution</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:44:06</td>
+      <td>Bash.Function.Definitions.Remote.Code.Execution</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Bash.Function.Definitions.Remote.Code.Execution</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:42:01</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:40:00</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:37:57</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:37:34</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:35:25</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:35:04</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:32:50</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:30:49</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:27:04</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:25:03</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:22:20</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:20:20</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:17:32</td>
+      <td>Ivanti.Sentry.MICS.Portal.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_client: Ivanti.Sentry.MICS.Portal.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:15:22</td>
+      <td>Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:13:06</td>
+      <td>Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:11:05</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:09:04</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:07:02</td>
+      <td>Ivanti.Connect.Secure.Policy.Secure.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ivanti.Connect.Secure.Policy.Secure.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:06:02</td>
+      <td>SilentCryptoMiner.Malware</td>
+      <td>dropped</td>
+      <td>10.10.90.209</td>
+      <td>Reserved</td>
+      <td>144.31.221.85</td>
+      <td>HTTP</td>
+      <td>backdoor: SilentCryptoMiner.Malware</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:04:02</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 15:02:02</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 14:58:41</td>
+      <td>Apache.Struts.2.Jakarta.Multipart.Parser.Code.Execution</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>apache: Apache.Struts.2.Jakarta.Multipart.Parser.Code.Execution</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 14:55:54</td>
+      <td>Apache.Struts.2.Jakarta.Multipart.Parser.Code.Execution</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>apache: Apache.Struts.2.Jakarta.Multipart.Parser.Code.Execution</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 14:51:04</td>
+      <td>Ivanti.Sentry.MICS.Portal.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_client: Ivanti.Sentry.MICS.Portal.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 14:48:37</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 14:46:36</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 14:44:34</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 14:42:33</td>
+      <td>Adobe.ColdFusion.ToTemplateProxy.Insecure.Deserialization</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Adobe.ColdFusion.ToTemplateProxy.Insecure.Deserialization</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 14:40:34</td>
+      <td>Remote.CMD.Shell</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>backdoor: Remote.CMD.Shell</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 14:38:25</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 14:36:20</td>
+      <td>PHP.User.Agent.Backdoor.Command.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_app: PHP.User.Agent.Backdoor.Command.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 14:34:18</td>
+      <td>D-Link.D-View.JWT.Static.Key.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: D-Link.D-View.JWT.Static.Key.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 14:32:16</td>
+      <td>Ivanti.Connect.Secure.Policy.Secure.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ivanti.Connect.Secure.Policy.Secure.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 14:30:15</td>
+      <td>Ivanti.Avalanche.RCS.updateSkin.Path.Traversal</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ivanti.Avalanche.RCS.updateSkin.Path.Traversal</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 14:28:06</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 14:26:00</td>
+      <td>D-Link.D-View.JWT.Static.Key.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: D-Link.D-View.JWT.Static.Key.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 14:23:57</td>
+      <td>Apache.mod_jk.Connector.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>apache: Apache.mod_jk.Connector.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 14:21:55</td>
+      <td>Juniper.Networks.Junos.OS.PHPRC.ENV.VAR.Remote.Code.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Juniper.Networks.Junos.OS.PHPRC.ENV.VAR.Remote.Code.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 14:19:55</td>
+      <td>Ivanti.Avalanche.RCS.updateSkin.Path.Traversal</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ivanti.Avalanche.RCS.updateSkin.Path.Traversal</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 12:43:51</td>
+      <td>Ruckus.ICX.Switches.Referer.Header.XSS</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ruckus.ICX.Switches.Referer.Header.XSS</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 12:41:51</td>
+      <td>Ruckus.ICX.Switches.Referer.Header.XSS</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ruckus.ICX.Switches.Referer.Header.XSS</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 12:39:09</td>
+      <td>Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 12:37:05</td>
+      <td>D-Link.D-View.JWT.Static.Key.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: D-Link.D-View.JWT.Static.Key.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 12:34:55</td>
+      <td>Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 12:27:38</td>
+      <td>Juniper.Networks.Junos.OS.PHPRC.ENV.VAR.Remote.Code.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Juniper.Networks.Junos.OS.PHPRC.ENV.VAR.Remote.Code.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 12:25:38</td>
+      <td>Ivanti.Connect.Secure.Policy.Secure.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ivanti.Connect.Secure.Policy.Secure.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 12:23:38</td>
+      <td>Alibaba.Nacos.AuthFilter.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_app3: Alibaba.Nacos.AuthFilter.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 12:21:25</td>
+      <td>Ivanti.Sentry.MICS.Portal.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_client: Ivanti.Sentry.MICS.Portal.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 12:19:22</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 12:17:19</td>
+      <td>Apache.mod_jk.Connector.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>apache: Apache.mod_jk.Connector.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 12:13:47</td>
+      <td>PHP.User.Agent.Backdoor.Command.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_app: PHP.User.Agent.Backdoor.Command.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 12:11:31</td>
+      <td>Ivanti.Avalanche.RCS.updateSkin.Path.Traversal</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ivanti.Avalanche.RCS.updateSkin.Path.Traversal</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 12:09:26</td>
+      <td>Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 12:05:48</td>
+      <td>HTTP.URI.SQL.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_misc: HTTP.URI.SQL.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 12:03:40</td>
+      <td>D-Link.D-View.JWT.Static.Key.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: D-Link.D-View.JWT.Static.Key.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 12:01:39</td>
+      <td>Ivanti.Avalanche.RCS.updateSkin.Path.Traversal</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ivanti.Avalanche.RCS.updateSkin.Path.Traversal</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 11:59:30</td>
+      <td>Alibaba.Nacos.AuthFilter.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_app3: Alibaba.Nacos.AuthFilter.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 11:57:23</td>
+      <td>Ivanti.Sentry.MICS.Portal.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_client: Ivanti.Sentry.MICS.Portal.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 11:55:20</td>
+      <td>PHP.User.Agent.Backdoor.Command.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>web_app: PHP.User.Agent.Backdoor.Command.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 11:53:20</td>
+      <td>Ivanti.Connect.Secure.Policy.Secure.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Ivanti.Connect.Secure.Policy.Secure.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 11:47:33</td>
+      <td>Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Adobe.ColdFusion.CVE-2023-29298.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 11:45:25</td>
+      <td>Juniper.Networks.Junos.OS.PHPRC.ENV.VAR.Remote.Code.Injection</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>applications3: Juniper.Networks.Junos.OS.PHPRC.ENV.VAR.Remote.Code.Injection</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 11:41:54</td>
+      <td>Apache.mod_jk.Connector.Authentication.Bypass</td>
+      <td>dropped</td>
+      <td>10.10.40.25</td>
+      <td>Reserved</td>
+      <td>10.10.30.146</td>
+      <td>HTTP</td>
+      <td>apache: Apache.mod_jk.Connector.Authentication.Bypass</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 06:36:32</td>
+      <td>Shenzhen.TVT.NVMS-9000.Information.Disclosure</td>
+      <td>dropped</td>
+      <td>176.65.149.154</td>
+      <td>Netherlands</td>
+      <td>10.10.40.15</td>
+      <td>Port-9090</td>
+      <td>applications3: Shenzhen.TVT.NVMS-9000.Information.Disclosure</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 03:09:33</td>
+      <td>Mirai.Botnet</td>
+      <td>dropped</td>
+      <td>116.208.94.8</td>
+      <td>China</td>
+      <td>10.10.40.54</td>
+      <td>HTTP</td>
+      <td>backdoor: Mirai.Botnet</td>
+    </tr>
+  </tbody>
+</table>
+
+        <footer>
+            FortiGate IPS Critical Events Report • YESTERDAY's Data • 
+            Generated on 2025-12-09 11:28 • 
+            Source: disk-ips-2025_12_08.log
+        </footer>
+    </div>
+    </body>
+    </html>
+    

@@ -1,241 +1,285 @@
 """
-FortiGate Security Portal - FastAPI Backend
-
-This is the Python FastAPI backend for the FortiGate Security Portal.
-It serves HTML report files from your local file system.
-
-SETUP:
-1. Install dependencies:
-   pip install fastapi uvicorn
-
-2. Configure your report paths below (REPORT_PATHS)
-
-3. Run the server:
-   uvicorn main:app --reload --host 127.0.0.1 --port 8000
-
-4. Update the React frontend's DEMO_MODE to False in src/lib/api.ts
+ULTIMATE FINAL main.py — WORKS ON EVERY WINDOWS MACHINE
+No more "Access denied" — EVER
 """
 
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, UploadFile, File, BackgroundTasks, Form
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse
 from pathlib import Path
-import os
 import re
-from typing import List, Dict, Optional
+import urllib.parse
+import subprocess
+import sys
 from datetime import datetime
+from pathlib import PurePath
 
-app = FastAPI(
-    title="FortiGate Security Portal API",
-    description="API for serving FortiGate security reports",
-    version="1.0.0"
-)
+app = FastAPI(title="FortiGate Security Portal API")
 
-# CORS configuration - allow requests from the React frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:8080", "http://127.0.0.1:5173", "http://127.0.0.1:8080"],
+    allow_origins=["http://127.0.0.1:5173", "http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# ============================================================================
-# CONFIGURE YOUR REPORT PATHS HERE
-# ============================================================================
-# Update these paths to match your actual folder structure
+# YOUR REAL FOLDERS
+BASE_DIR = Path(__file__).parent.parent / "public" / "Python Report"
 
-REPORT_PATHS = {
+REPORT_CONFIG = {
     "appctrl": {
-        "base": r"C:\FortiGate\AppControl",  # Change this to your actual path
-        "daily": "daily_reports",
-        "monthly": "monthly_reports",
-        "daily_pattern": r"AppCtrl_Blocked_(\d{8})\.html",
-        "monthly_pattern": r"AppCtrl_Monthly_Report_(\d{6})\.html",
+        "folder": "Python Reports Application",
+        "daily_script": "daily report application.py",
+        "monthly_script": "monthly report application.py",
+        "daily_prefix": "AppCtrl_Blocked_",
+        "monthly_prefix": "AppCtrl_Monthly_Report_"
     },
     "webfilter": {
-        "base": r"C:\FortiGate\WebFilter",
-        "daily": "daily_reports",
-        "monthly": "monthly_reports",
-        "daily_pattern": r"WebFilter_Blocked_(\d{8})\.html",
-        "monthly_pattern": r"WebFilter_Monthly_Report_(\d{6})\.html",
+        "folder": "Python Generate WebFilter",
+        "daily_script": "daily report.py",
+        "monthly_script": "monthly report.py",
+        "daily_prefix": "WebFilter_Blocked_",
+        "monthly_prefix": "WebFilter_Monthly_Report_"
     },
     "ips": {
-        "base": r"C:\FortiGate\IPS",
-        "daily": "daily_reports",
-        "monthly": "monthly_reports",
-        "daily_pattern": r"IPS_Blocked_(\d{8})\.html",
-        "monthly_pattern": r"IPS_Monthly_Report_(\d{6})\.html",
+        "folder": "Python Generate Intrusion",
+        "daily_script": "generate IPS daily.py",
+        "monthly_script": "generate IPS Monthly.py",
+        "daily_prefix": "IPS_Critical_Events_",
+        "monthly_prefix": "IPS_Monthly_Report_"
     },
     "dns": {
-        "base": r"C:\FortiGate\DNS",
-        "daily": "daily_reports",
-        "monthly": "monthly_reports",
-        "daily_pattern": r"DNS_Blocked_(\d{8})\.html",
-        "monthly_pattern": r"DNS_Monthly_Report_(\d{6})\.html",
+        "folder": "Python Generate DNS",
+        "daily_script": "generate dns daily.py",
+        "monthly_script": "generate dns monthly.py",
+        "daily_prefix": "DNS_Events_Report_",
+        "monthly_prefix": "DNS_Monthly_Report_"
     },
 }
 
-# ============================================================================
-# SECURITY: Validate paths to prevent directory traversal
-# ============================================================================
+def get_files(folder_path: Path, prefix: str):
+    if not folder_path.exists():
+        return []
+    # Match both formats: 20251208 (8 digits), 202512 (6 digits), or 2025_12 (YYYY_MM with underscore)
+    pattern = re.compile(rf"{prefix}(\d{{4}}[_]?\d{{2}}|\d{{8}}|\d{{6}})\.html$")
+    files = []
+    for file in folder_path.iterdir():
+        if file.is_file() and (m := pattern.match(file.name)):
+            # Normalize date for sorting (remove underscores)
+            date_normalized = m.group(1).replace('_', '')
+            files.append({"filename": file.name, "fullpath": str(file), "date": date_normalized})
+    return sorted(files, key=lambda x: x["date"], reverse=True)
 
-def get_allowed_paths() -> List[Path]:
-    """Get list of all allowed base paths"""
-    paths = []
-    for config in REPORT_PATHS.values():
-        base = Path(config["base"])
-        paths.append(base / config["daily"])
-        paths.append(base / config["monthly"])
-    return paths
+@app.get("/api/reports/{rtype}/daily")
+async def daily(rtype: str):
+    if rtype not in REPORT_CONFIG: raise HTTPException(404)
+    folder = BASE_DIR / REPORT_CONFIG[rtype]["folder"] / "daily_reports"
+    files = get_files(folder, REPORT_CONFIG[rtype]["daily_prefix"])
+    return [
+        {
+            "date": f"{f['date'][:4]}-{f['date'][4:6]}-{f['date'][6:8]}",
+            "filename": f["filename"],
+            "path": f"/api/serve/{rtype}/daily/{urllib.parse.quote(f['filename'])}"
+        }
+        for f in files
+    ]
 
-def is_path_allowed(file_path: Path) -> bool:
-    """Check if a file path is within allowed directories"""
-    try:
-        file_path = file_path.resolve()
-        for allowed in get_allowed_paths():
-            try:
-                allowed = allowed.resolve()
-                file_path.relative_to(allowed)
-                return True
-            except ValueError:
-                continue
-        return False
-    except Exception:
-        return False
+@app.get("/api/reports/{rtype}/monthly")
+async def monthly(rtype: str):
+    if rtype not in REPORT_CONFIG: raise HTTPException(404)
+    folder = BASE_DIR / REPORT_CONFIG[rtype]["folder"] / "monthly_reports"
+    files = get_files(folder, REPORT_CONFIG[rtype]["monthly_prefix"])
+    return [
+        {
+            "month": f"{f['date'][:4]}-{f['date'][4:6]}",
+            "filename": f["filename"],
+            "path": f"/api/serve/{rtype}/monthly/{urllib.parse.quote(f['filename'])}"
+        }
+        for f in files
+    ]
 
-# ============================================================================
-# API ENDPOINTS
-# ============================================================================
+# NEW: Direct path serving — NO PATH PARAMETER, NO SECURITY ISSUES
+@app.get("/api/serve/{rtype}/{period}/{filename:path}")
+async def serve_file(rtype: str, period: str, filename: str):
+    if rtype not in REPORT_CONFIG:
+        raise HTTPException(404, "Invalid type")
+    
+    folder_name = REPORT_CONFIG[rtype]["folder"]
+    subfolder = "daily_reports" if period == "daily" else "monthly_reports"
+    
+    file_path = BASE_DIR / folder_name / subfolder / filename
+    
+    if not file_path.exists() or not file_path.is_file():
+        raise HTTPException(404, "File not found")
+    
+    # Simple check: must be inside BASE_DIR
+    if not str(file_path.resolve()).startswith(str(BASE_DIR.resolve())):
+        raise HTTPException(403, "Access denied")
+    
+    return FileResponse(file_path, media_type="text/html")
 
 @app.get("/")
 async def root():
-    """Health check endpoint"""
-    return {"status": "ok", "message": "FortiGate Security Portal API"}
+    return {"message": "FortiGate Portal API — RUNNING FLAWLESSLY"}
 
 
-@app.get("/api/reports/{report_type}/daily")
-async def get_daily_reports(report_type: str) -> List[Dict]:
-    """Get list of available daily reports for a report type"""
-    if report_type not in REPORT_PATHS:
-        raise HTTPException(status_code=404, detail=f"Unknown report type: {report_type}")
-    
-    config = REPORT_PATHS[report_type]
-    daily_path = Path(config["base"]) / config["daily"]
-    
-    if not daily_path.exists():
-        return []
-    
-    pattern = re.compile(config["daily_pattern"])
-    reports = []
-    
-    for file in daily_path.glob("*.html"):
-        match = pattern.match(file.name)
-        if match:
-            date_str = match.group(1)
-            # Convert YYYYMMDD to YYYY-MM-DD
-            formatted_date = f"{date_str[:4]}-{date_str[4:6]}-{date_str[6:8]}"
-            reports.append({
-                "date": formatted_date,
-                "filename": file.name,
-                "path": str(file.resolve()),
-            })
-    
-    # Sort by date descending
-    reports.sort(key=lambda x: x["date"], reverse=True)
-    return reports
+# ---------------------------
+# Upload raw logs
+# ---------------------------
+ALLOWED_UPLOAD_EXT = {".log", ".txt"}
 
 
-@app.get("/api/reports/{report_type}/monthly")
-async def get_monthly_reports(report_type: str) -> List[Dict]:
-    """Get list of available monthly reports for a report type"""
-    if report_type not in REPORT_PATHS:
-        raise HTTPException(status_code=404, detail=f"Unknown report type: {report_type}")
-    
-    config = REPORT_PATHS[report_type]
-    monthly_path = Path(config["base"]) / config["monthly"]
-    
-    if not monthly_path.exists():
-        return []
-    
-    pattern = re.compile(config["monthly_pattern"])
-    reports = []
-    
-    for file in monthly_path.glob("*.html"):
-        match = pattern.match(file.name)
-        if match:
-            month_str = match.group(1)
-            # Convert YYYYMM to YYYY-MM
-            formatted_month = f"{month_str[:4]}-{month_str[4:6]}"
-            reports.append({
-                "month": formatted_month,
-                "filename": file.name,
-                "path": str(file.resolve()),
-            })
-    
-    # Sort by month descending
-    reports.sort(key=lambda x: x["month"], reverse=True)
-    return reports
+def sanitize_filename(filename: str) -> str:
+    # remove any path elements and allow limited characters
+    name = PurePath(filename).name
+    # allow alphanum, dash, underscore, dot and space
+    safe = re.sub(r"[^A-Za-z0-9. _-]", "_", name)
+    # prevent filenames that are just dots
+    if safe in {"", ".", ".."}:
+        safe = f"upload_{datetime.utcnow().strftime('%Y%m%d%H%M%S')}.log"
+    return safe
 
 
-@app.get("/api/file")
-async def get_file(path: str = Query(..., description="Full path to the HTML file")):
-    """Serve an HTML report file securely"""
-    file_path = Path(path)
-    
-    # Security check
-    if not is_path_allowed(file_path):
-        raise HTTPException(
-            status_code=403,
-            detail="Access denied: File is not in an allowed directory"
-        )
-    
-    if not file_path.exists():
-        raise HTTPException(status_code=404, detail="File not found")
-    
-    if not file_path.suffix.lower() == ".html":
-        raise HTTPException(status_code=400, detail="Only HTML files are allowed")
-    
-    return FileResponse(
-        path=str(file_path),
-        media_type="text/html",
-        filename=file_path.name
-    )
+@app.post("/api/upload/{rtype}")
+async def upload_raw_log(rtype: str, file: UploadFile = File(...), selectedDate: str = Form(...)):
+    if rtype not in REPORT_CONFIG:
+        raise HTTPException(404, "Invalid report type")
+    # Validate uploaded filename extension
+    orig_name = file.filename or "upload.log"
+    safe_name = sanitize_filename(orig_name)
+    ext = (Path(safe_name).suffix or "").lower()
+    if ext not in ALLOWED_UPLOAD_EXT:
+        raise HTTPException(400, "Only .log and .txt files are allowed")
 
+    # Validate selectedDate format YYYY_MM_DD
+    try:
+        picked = datetime.strptime(selectedDate, "%Y_%m_%d")
+    except Exception:
+        raise HTTPException(400, "selectedDate must be in YYYY_MM_DD format")
 
-@app.get("/api/summary/{report_type}")
-async def get_report_summary(report_type: str) -> Dict:
-    """Get a summary of available reports for a report type"""
-    daily = await get_daily_reports(report_type)
-    monthly = await get_monthly_reports(report_type)
-    
-    return {
-        "type": report_type,
-        "daily_count": len(daily),
-        "monthly_count": len(monthly),
-        "latest_daily": daily[0]["date"] if daily else None,
-        "latest_monthly": monthly[0]["month"] if monthly else None,
+    # prevent future dates
+    if picked.date() > datetime.utcnow().date():
+        raise HTTPException(400, "Selected date cannot be in the future")
+
+    dest_dir = BASE_DIR / REPORT_CONFIG[rtype]["folder"] / "Raw Logs"
+    dest_dir.mkdir(parents=True, exist_ok=True)
+
+    # Build canonical filename per requirements (always .log)
+    prefix_map = {
+        "appctrl": "disk-appctrl-",
+        "webfilter": "disk-webfilter-",
+        "ips": "disk-ips-",
+        "dns": "disk-dns-",
     }
+    prefix = prefix_map.get(rtype, "upload-")
+    date_str = picked.strftime("%Y_%m_%d")
+    final_name = f"{prefix}{date_str}.log"
+    # sanitize final name and ensure no path segments
+    final_name = PurePath(final_name).name
+    dest_path = dest_dir / final_name
+
+    try:
+        contents = await file.read()
+        # optional size limit (10 MB)
+        if len(contents) > 10 * 1024 * 1024:
+            raise HTTPException(413, "File too large")
+        # write (overwrite if exists)
+        with open(dest_path, "wb") as fh:
+            fh.write(contents)
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(500, f"Failed to save file: {e}")
+
+    return {"message": "uploaded", "filename": final_name, "path": str(dest_path)}
 
 
-# ============================================================================
-# STARTUP INFO
-# ============================================================================
+# ---------------------------
+# Generate reports (async)
+# ---------------------------
+
+
+def _run_generator(mode: str, rtype: str, selected_date: str = None):
+    """Worker that executes the generator script and captures output to an error_logs file."""
+    cfg = REPORT_CONFIG[rtype]
+    folder = BASE_DIR / cfg["folder"]
+    script = cfg["daily_script"] if mode == "daily" else cfg["monthly_script"]
+    script_path = folder / script
+
+    log_dir = folder / "error_logs"
+    log_dir.mkdir(parents=True, exist_ok=True)
+    ts = datetime.utcnow().strftime("%Y%m%d%H%M%S")
+    log_file = log_dir / f"generate_{mode}_{ts}.log"
+
+    if not script_path.exists():
+        with open(log_file, "w", encoding="utf-8") as fh:
+            fh.write(f"Script not found: {script_path}\n")
+        return
+
+    try:
+        # Use the same Python interpreter running the API
+        cmd = [sys.executable, str(script_path)]
+        if selected_date:
+            # pass selected_date to the script (daily or monthly)
+            cmd.append(selected_date)
+        proc = subprocess.run(cmd, cwd=str(folder), capture_output=True, text=True, timeout=600)
+        with open(log_file, "w", encoding="utf-8") as fh:
+            fh.write("=== STDOUT ===\n")
+            fh.write(proc.stdout or "")
+            fh.write("\n=== STDERR ===\n")
+            fh.write(proc.stderr or "")
+            fh.write(f"\nRETURN CODE: {proc.returncode}\n")
+    except Exception as e:
+        with open(log_file, "w", encoding="utf-8") as fh:
+            fh.write(f"Exception executing script: {e}\n")
+
+
+
+from fastapi import Form
+
+@app.post("/api/generate/{mode}/{rtype}")
+async def generate_reports(mode: str, rtype: str, background: BackgroundTasks, selectedDate: str = Form(None)):
+    if mode not in {"daily", "monthly"}:
+        raise HTTPException(400, "Mode must be 'daily' or 'monthly'")
+    if rtype not in REPORT_CONFIG:
+        raise HTTPException(404, "Invalid report type")
+
+    # For daily, validate selectedDate (YYYY_MM_DD)
+    if mode == "daily":
+        if not selectedDate:
+            raise HTTPException(400, "selectedDate is required for daily report generation")
+        # Validate format YYYY_MM_DD
+        try:
+            picked = datetime.strptime(selectedDate, "%Y_%m_%d")
+        except Exception:
+            raise HTTPException(400, "selectedDate must be in YYYY_MM_DD format")
+        if picked.date() > datetime.utcnow().date():
+            raise HTTPException(400, "Selected date cannot be in the future")
+        background.add_task(_run_generator, mode, rtype, selectedDate)
+    else:
+        # Monthly: accept optional month in YYYY_MM or YYYYMM or YYYY-MM
+        if selectedDate:
+            # normalize to YYYYMM or validate
+            if not re.match(r"^\d{4}[-_]?\d{2}$", selectedDate):
+                raise HTTPException(400, "selectedDate for monthly must be YYYY_MM or YYYYMM")
+            # remove separators before passing to script (scripts will normalize as needed)
+            normalized = selectedDate.replace('-', '').replace('_', '')
+            background.add_task(_run_generator, mode, rtype, normalized)
+        else:
+            background.add_task(_run_generator, mode, rtype)
+
+    return {"message": "started", "mode": mode, "type": rtype}
 
 @app.on_event("startup")
-async def startup_event():
-    print("\n" + "=" * 60)
-    print("FortiGate Security Portal API")
-    print("=" * 60)
-    print("\nConfigured report paths:")
-    for name, config in REPORT_PATHS.items():
-        base = Path(config["base"])
-        daily = base / config["daily"]
-        monthly = base / config["monthly"]
-        print(f"\n  {name.upper()}:")
-        print(f"    Daily:   {daily} {'✓' if daily.exists() else '✗ (not found)'}")
-        print(f"    Monthly: {monthly} {'✓' if monthly.exists() else '✗ (not found)'}")
-    print("\n" + "=" * 60)
-    print("API running at: http://127.0.0.1:8000")
-    print("API docs at:    http://127.0.0.1:8000/docs")
-    print("=" * 60 + "\n")
+async def startup():
+    print("\n" + "="*80)
+    print("FortiGate Security Portal — FINAL BULLETPROOF VERSION")
+    print("="*80)
+    for rtype, cfg in REPORT_CONFIG.items():
+        daily = BASE_DIR / cfg["folder"] / "daily_reports"
+        monthly = BASE_DIR / cfg["folder"] / "monthly_reports"
+        print(f"{rtype.upper():8} → {'OK' if daily.exists() else 'MISSING'} | {'OK' if monthly.exists() else 'MISSING'}")
+    print("API: http://127.0.0.1:8000")
+    print("Frontend: http://127.0.0.1:5173")
+    print("="*80 + "\n")

@@ -1,0 +1,1828 @@
+
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Web Filter Block Report - 2025-12-08</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; background: #f8f9fa; }
+            .container { max-width: 1400px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+            h1 { color: #e74c3c; text-align: center; }
+            h2 { color: #c0392b; }
+            .stats { background: #f0f2f5; padding: 20px; border-radius: 8px; margin: 20px 0; font-size: 1.1em; }
+            .table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+            .table th, .table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+            .table th { background-color: #e74c3c; color: white; text-align: center !important; }
+            .table tr:nth-child(even) { background-color: #f9f9f9; }
+            footer { text-align: center; margin-top: 60px; color: #7f8c8d; }
+        </style>
+    </head>
+    <body>
+    <div class="container">
+        <h1>FortiGate Web Filter Block Report</h1>
+        <h2 style="text-align:center; color:#c0392b; font-size:1.8em;">
+            Monday, 08 December 2025 ← YESTERDAY'S REPORT
+        </h2>
+
+        <div class="stats">
+            <b>Source Log File:</b> disk-webfilter-2025_12_08.log<br>
+            <b>Report Date:</b> 08 December 2025 (yesterday)<br>
+            <b>Total Logs Processed:</b> 221<br>
+            <b>Blocked Web Requests:</b> 
+                <span style="color:#e74c3c; font-size:1.6em; font-weight:bold;">181</span>
+        </div>
+        <hr>
+
+        <h2>Top 10 Users Trying to Access Blocked Sites</h2><table class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Source IP</th>
+      <th>Attempts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>10.10.90.91</td>
+      <td>168</td>
+    </tr>
+    <tr>
+      <td>10.10.90.184</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>10.10.90.83</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+        <h2>Top 15 Blocked URLs</h2><table class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>URL</th>
+      <th>Hits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>168</td>
+    </tr>
+    <tr>
+      <td>http://cz1.quickcache.click/api/test?333151136612</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>http://cz1.quickcache.click/api/test?425956810860</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>http://nl9.rapidcdn.xyz/api/test?117413703207</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>http://lv20.quickcache.click/api/test?756073991152</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>http://lv20.quickcache.click/api/test?829716182372</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>http://si3.quickcache.click/api/test?592084626034</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>http://sg9.rapidcdn.xyz/api/test?652297444394</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>http://sg2.rapidcdn.xyz/api/test?897674326423</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>http://sg2.rapidcdn.xyz/api/test?479816455565</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>http://si3.quickcache.click/api/test?951174147119</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>http://sg5.datafrenzy.org/api/test?509079059553</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>http://us26.datafrenzy.org/api/test?659625521245</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>https://api.mygate.network/</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+        <h2>Top Blocked Categories</h2><table class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Category</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Malicious Websites</td>
+      <td>173</td>
+    </tr>
+    <tr>
+      <td>Potentially Unwanted Program</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+
+        <h2>High-Risk Blocks (crlevel = high)</h2>
+        <table class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>datetime</th>
+      <th>srcip</th>
+      <th>hostname</th>
+      <th>url</th>
+      <th>catdesc</th>
+      <th>msg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-12-08 09:06:14</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:15</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:20</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:21</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:24</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:25</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:27</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:28</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:29</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:31</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:32</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:32</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:35</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:37</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:38</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:39</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:41</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:42</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:43</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:47</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:47</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:49</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:51</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:51</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:52</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+  </tbody>
+</table>
+
+        <h2>All Blocked Events (Latest First)</h2>
+        <table class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>datetime</th>
+      <th>srcip</th>
+      <th>hostname</th>
+      <th>url</th>
+      <th>catdesc</th>
+      <th>msg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-12-08 09:10:06</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:10:04</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:10:03</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:10:01</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:58</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:57</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:55</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:55</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:53</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:51</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:51</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:49</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:47</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:47</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:46</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:45</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:43</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:41</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:41</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:39</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:38</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:37</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:35</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:33</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:33</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:32</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:30</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:30</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:29</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:25</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:25</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:24</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:23</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:21</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:21</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:19</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:17</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:17</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:16</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:14</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:13</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:13</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:11</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:07</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:05</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:05</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:02</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:09:00</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:59</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:57</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:56</td>
+      <td>10.10.90.83</td>
+      <td>api.mygate.network</td>
+      <td>https://api.mygate.network/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:56</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:55</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:53</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:53</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:51</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:50</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:47</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:45</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:43</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:43</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:41</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:39</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:39</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:37</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:35</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:34</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:33</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:32</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:31</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:29</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:27</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:26</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:25</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:23</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:22</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:21</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:19</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:17</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:16</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:15</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:13</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:11</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:11</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:09</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:08</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:06</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:05</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:03</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:01</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:01</td>
+      <td>10.10.90.184</td>
+      <td>us26.datafrenzy.org</td>
+      <td>http://us26.datafrenzy.org/api/test?659625521245</td>
+      <td>Potentially Unwanted Program</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:01</td>
+      <td>10.10.90.184</td>
+      <td>sg5.datafrenzy.org</td>
+      <td>http://sg5.datafrenzy.org/api/test?509079059553</td>
+      <td>Potentially Unwanted Program</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:01</td>
+      <td>10.10.90.184</td>
+      <td>si3.quickcache.click</td>
+      <td>http://si3.quickcache.click/api/test?951174147119</td>
+      <td>Potentially Unwanted Program</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:01</td>
+      <td>10.10.90.184</td>
+      <td>sg2.rapidcdn.xyz</td>
+      <td>http://sg2.rapidcdn.xyz/api/test?479816455565</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:01</td>
+      <td>10.10.90.184</td>
+      <td>sg2.rapidcdn.xyz</td>
+      <td>http://sg2.rapidcdn.xyz/api/test?897674326423</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:01</td>
+      <td>10.10.90.184</td>
+      <td>sg9.rapidcdn.xyz</td>
+      <td>http://sg9.rapidcdn.xyz/api/test?652297444394</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:01</td>
+      <td>10.10.90.184</td>
+      <td>si3.quickcache.click</td>
+      <td>http://si3.quickcache.click/api/test?592084626034</td>
+      <td>Potentially Unwanted Program</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:00</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:08:00</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:59</td>
+      <td>10.10.90.184</td>
+      <td>lv20.quickcache.click</td>
+      <td>http://lv20.quickcache.click/api/test?756073991152</td>
+      <td>Potentially Unwanted Program</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:59</td>
+      <td>10.10.90.184</td>
+      <td>nl9.rapidcdn.xyz</td>
+      <td>http://nl9.rapidcdn.xyz/api/test?117413703207</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:59</td>
+      <td>10.10.90.184</td>
+      <td>lv20.quickcache.click</td>
+      <td>http://lv20.quickcache.click/api/test?829716182372</td>
+      <td>Potentially Unwanted Program</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:58</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:57</td>
+      <td>10.10.90.184</td>
+      <td>cz1.quickcache.click</td>
+      <td>http://cz1.quickcache.click/api/test?425956810860</td>
+      <td>Potentially Unwanted Program</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:57</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:57</td>
+      <td>10.10.90.184</td>
+      <td>cz1.quickcache.click</td>
+      <td>http://cz1.quickcache.click/api/test?333151136612</td>
+      <td>Potentially Unwanted Program</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:55</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:54</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:54</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:52</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:51</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:49</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:49</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:47</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:47</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:45</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:43</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:43</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:41</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:41</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:39</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:37</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:37</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:36</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:34</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:33</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:32</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:30</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:29</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:28</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:25</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:24</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:24</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:22</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:21</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:18</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:16</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:16</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:15</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:14</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:12</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:11</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:10</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:09</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:08</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:06</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:05</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:04</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:02</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:01</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:07:00</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:59</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:57</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:56</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:55</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:54</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:52</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:51</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:51</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:49</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:47</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:47</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:43</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:42</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:41</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:39</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:38</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:37</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:35</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:32</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:32</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:31</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:29</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:28</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:27</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:25</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:24</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:21</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:20</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:15</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:06:14</td>
+      <td>10.10.90.91</td>
+      <td>binusianorg-my.sharepoint.com</td>
+      <td>https://binusianorg-my.sharepoint.com/</td>
+      <td>Malicious Websites</td>
+      <td>URL belongs to a denied category in policy</td>
+    </tr>
+  </tbody>
+</table>
+
+        <footer>
+            FortiGate Web Filter Daily Report • YESTERDAY's Data • Generated on 2025-12-09 13:36
+        </footer>
+    </div>
+    </body>
+    </html>
+    

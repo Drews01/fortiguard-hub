@@ -1,0 +1,1555 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>FortiGate Application Control Block Report - 2025-12-08</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; background: #f8f9fa; }
+            .container { max-width: 1400px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+            h1 { color: #9b59b6; text-align: center; }
+            h2 { color: #8e44ad; border-bottom: 2px solid #ddd; padding: 10px; border-radius: 5px; background: #f0e6ff; }
+            .stats { font-size: 1.1em; background: #f0f2f5; padding: 15px; border-radius: 8px; margin: 20px 0; }
+            .table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 0.95em; }
+            .table th, .table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+            .table th { background-color: #9b59b6; color: white; text-align: center !important; }
+            .table tr:nth-child(even) { background-color: #f9f9f9; }
+            footer { text-align: center; margin-top: 50px; color: #7f8c8d; font-size: 0.9em; }
+        </style>
+    </head>
+    <body>
+    <div class="container">
+        <h1>FortiGate Application Control - Blocked Applications Report</h1>
+        <p style="text-align:center; font-size:1.5em; color:#e74c3c; font-weight:bold;">
+            Monday, 08 December 2025 ← YESTERDAY'S REPORT
+        </p>
+
+        <div class="stats">
+            <b>Source Log File:</b> disk-app-ctrl-2025_12_08.log<br>
+            <b>Report Date:</b> 08 December 2025 (yesterday)<br>
+            <b>Total Logs Processed:</b> 146<br>
+            <b>Blocked Application Events:</b> 
+                <span style="color:#e74c3c; font-size:1.5em; font-weight:bold;">90</span>
+        </div>
+        <hr>
+
+        <h2>Top 10 Blocked Applications</h2><table class="dataframe table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Application</th>
+      <th>Block Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Microsoft.Windows.Update</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td>Google.Play</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+        <h2>Top 10 Source IPs (Users/Devices)</h2><table class="dataframe table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Source IP</th>
+      <th>Attempts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>10.10.40.27</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>192.168.29.99</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>10.10.40.28</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>10.10.40.20</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>10.10.30.20</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>192.168.29.189</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>10.10.40.15</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>10.10.40.37</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>10.10.40.53</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>10.10.30.57</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+        <h2>Top 10 Destination Hosts</h2><table class="dataframe table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Hostname / IP</th>
+      <th>Hits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ctldl.windowsupdate.com</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <td>sls.update.microsoft.com</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>android.clients.google.com</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>settings-win.data.microsoft.com</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+        <h2>Blocked by Application Category</h2><table class="dataframe table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Category</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Update</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td>General.Interest</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+        <h2>Blocks by Application Risk Level</h2><table class="dataframe table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Risk Level</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>elevated</td>
+      <td>90</td>
+    </tr>
+  </tbody>
+</table>
+
+        <h2>High & Elevated Risk Blocked Applications</h2>
+        <p>Only applications with <code>apprisk=high</code> or <code>elevated</code> are shown:</p>
+        <table class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>datetime</th>
+      <th>srcip</th>
+      <th>app_safe</th>
+      <th>hostname_safe</th>
+      <th>url_safe</th>
+      <th>apprisk</th>
+      <th>msg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-12-08 09:11:55</td>
+      <td>10.10.40.27</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>sls.update.microsoft.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:06</td>
+      <td>10.10.30.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?72d237072793b437</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:08</td>
+      <td>192.168.29.189</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?f9c39035579af48b</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:09</td>
+      <td>192.168.29.189</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?99f53ce8406f18e7</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:17</td>
+      <td>10.10.40.37</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?188f670615947ade</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:18</td>
+      <td>10.10.40.37</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?e842d5822fedc0e2</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:22</td>
+      <td>192.168.29.189</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>sls.update.microsoft.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:23</td>
+      <td>10.10.30.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?0b6a31c884155842</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:23</td>
+      <td>192.168.29.99</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?c89d243db133bac6</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:24</td>
+      <td>192.168.29.99</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?361d2b2680110193</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:25</td>
+      <td>192.168.29.99</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?8c64152faebbf634</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:26</td>
+      <td>192.168.29.99</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?73489143c00d9c41</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:34</td>
+      <td>10.10.40.27</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?56fb5c33abd20f54</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:35</td>
+      <td>10.10.40.27</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?6cfdf445a694b081</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:56</td>
+      <td>192.168.29.189</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>sls.update.microsoft.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:59</td>
+      <td>10.10.40.15</td>
+      <td>Google.Play</td>
+      <td>android.clients.google.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>General.Interest: Google.Play</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:59</td>
+      <td>10.10.40.15</td>
+      <td>Google.Play</td>
+      <td>android.clients.google.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>General.Interest: Google.Play</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:06</td>
+      <td>10.10.30.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?10b1a79b45858329</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:07</td>
+      <td>10.10.30.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?4199a814400fbf4a</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:08</td>
+      <td>10.10.40.53</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?529de3e7363eb694</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:14</td>
+      <td>10.10.40.28</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?09315dd9636901d1</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:15</td>
+      <td>10.10.40.28</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?852b21ea109fef38</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:18</td>
+      <td>10.10.40.15</td>
+      <td>Google.Play</td>
+      <td>android.clients.google.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>General.Interest: Google.Play</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:18</td>
+      <td>10.10.40.15</td>
+      <td>Google.Play</td>
+      <td>android.clients.google.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>General.Interest: Google.Play</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:26</td>
+      <td>192.168.29.99</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?6b434cd27db5c4e4</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:26</td>
+      <td>192.168.29.99</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?d50ecee5d8984719</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:33</td>
+      <td>10.10.40.27</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?3175ad49f6af57cd</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:34</td>
+      <td>10.10.40.27</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?272a73405f2ce62a</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:38</td>
+      <td>10.10.40.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>sls.update.microsoft.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:42</td>
+      <td>10.10.40.28</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>sls.update.microsoft.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:59</td>
+      <td>10.10.40.27</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>sls.update.microsoft.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:06</td>
+      <td>10.10.30.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?b7da1be29662c7f7</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:07</td>
+      <td>10.10.30.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?c6bc443edd5c3ce9</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:08</td>
+      <td>10.10.40.53</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?f48864888dd4d340</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:09</td>
+      <td>10.10.40.53</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?b3226d2cf8cc1e8d</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:12</td>
+      <td>10.10.40.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?35e7de194744c21a</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:16</td>
+      <td>10.10.40.28</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?69e1c38620bab472</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:16</td>
+      <td>10.10.40.28</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?d674090da334bf70</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:18</td>
+      <td>10.10.30.57</td>
+      <td>Google.Play</td>
+      <td>android.clients.google.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>General.Interest: Google.Play</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:18</td>
+      <td>10.10.30.57</td>
+      <td>Google.Play</td>
+      <td>android.clients.google.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>General.Interest: Google.Play</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:22</td>
+      <td>192.168.29.189</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>sls.update.microsoft.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:28</td>
+      <td>10.10.30.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>settings-win.data.microsoft.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:34</td>
+      <td>10.10.40.27</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?31b09193ffa005ec</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:34</td>
+      <td>10.10.40.27</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?70730709b6a47895</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:38</td>
+      <td>10.10.30.57</td>
+      <td>Google.Play</td>
+      <td>android.clients.google.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>General.Interest: Google.Play</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:38</td>
+      <td>10.10.30.57</td>
+      <td>Google.Play</td>
+      <td>android.clients.google.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>General.Interest: Google.Play</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:42</td>
+      <td>10.10.40.28</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?affdc558899ed0f7</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:42</td>
+      <td>10.10.40.28</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?3d2562a49293644a</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:46</td>
+      <td>10.10.40.19</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?737b490ff839d7c6</td>
+      <td>elevated</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:48</td>
+      <td>10.10.30.116</td>
+      <td>Google.Play</td>
+      <td>android.clients.google.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>General.Interest: Google.Play</td>
+    </tr>
+  </tbody>
+</table>
+
+        <h2>All Blocked Events (Latest First)</h2>
+        <table class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>datetime</th>
+      <th>srcip</th>
+      <th>app_safe</th>
+      <th>hostname_safe</th>
+      <th>url_safe</th>
+      <th>apprisk</th>
+      <th>service</th>
+      <th>msg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-12-08 09:16:32</td>
+      <td>10.10.40.27</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?9538843f4dd225c3</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:16:32</td>
+      <td>10.10.40.27</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?a12bdd28f7759b47</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:16:23</td>
+      <td>192.168.29.99</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?5dfbe1d422ebf544</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:16:23</td>
+      <td>192.168.29.99</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?ca2addb9b0dcedec</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:16:22</td>
+      <td>192.168.29.189</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>sls.update.microsoft.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:16:14</td>
+      <td>10.10.40.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?281fcb295f7eae94</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:16:14</td>
+      <td>10.10.40.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?ba2d20e2561ae873</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:16:13</td>
+      <td>10.10.40.13</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?f29e41e64c5743b2</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:16:13</td>
+      <td>10.10.40.13</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?2c0c19d46f866447</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:16:06</td>
+      <td>10.10.40.37</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?14886240fe73ed93</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:16:05</td>
+      <td>10.10.40.37</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?c85e82799f1d2acd</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:59</td>
+      <td>10.10.40.27</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>sls.update.microsoft.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:52</td>
+      <td>192.168.29.99</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?35f728bc119aa081</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:52</td>
+      <td>192.168.29.99</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?da70c9ba6358564e</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:43</td>
+      <td>10.10.40.28</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?ccf50391972d3d0b</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:42</td>
+      <td>10.10.40.28</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>sls.update.microsoft.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:42</td>
+      <td>10.10.40.41</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?41a59e0e8270ea70</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:42</td>
+      <td>10.10.40.41</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?c6bfb580ccef0ad9</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:42</td>
+      <td>10.10.40.28</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?e718ebe32e80554b</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:40</td>
+      <td>10.10.40.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?db29df346012fb47</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:40</td>
+      <td>10.10.40.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?e82b6ed087c703a4</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:38</td>
+      <td>10.10.40.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>sls.update.microsoft.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:34</td>
+      <td>10.10.40.19</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?842c6ce85ed6bc27</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:33</td>
+      <td>10.10.40.19</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?698d159deea58e5d</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:21</td>
+      <td>192.168.29.99</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?a13889f6d3215acc</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:13</td>
+      <td>10.10.40.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?485d600a59c4f623</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:12</td>
+      <td>10.10.40.13</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?e2fe35f03c8f6411</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:12</td>
+      <td>10.10.40.13</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?9d35befb9c24f24f</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:12</td>
+      <td>10.10.40.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?c5d9d1bdfa298b2f</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:10</td>
+      <td>10.10.40.53</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?ebf4bfdb44b4b14d</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:10</td>
+      <td>10.10.40.53</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?6264f5e355ef9766</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:09</td>
+      <td>10.10.40.15</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?e8a9a5f3dd669c3e</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:09</td>
+      <td>10.10.40.15</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?7c983ceb95625eec</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:07</td>
+      <td>10.10.30.116</td>
+      <td>Google.Play</td>
+      <td>android.clients.google.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>General.Interest: Google.Play</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:07</td>
+      <td>10.10.30.116</td>
+      <td>Google.Play</td>
+      <td>android.clients.google.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>General.Interest: Google.Play</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:05</td>
+      <td>10.10.40.37</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?5d9d115d5d37eb7d</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:15:05</td>
+      <td>10.10.40.37</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?0f38e0dbe5a1a14a</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:56</td>
+      <td>192.168.29.189</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>sls.update.microsoft.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:52</td>
+      <td>10.10.30.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?be62fc8fe86f8c68</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:48</td>
+      <td>10.10.30.116</td>
+      <td>Google.Play</td>
+      <td>android.clients.google.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>General.Interest: Google.Play</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:48</td>
+      <td>10.10.30.116</td>
+      <td>Google.Play</td>
+      <td>android.clients.google.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>General.Interest: Google.Play</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:46</td>
+      <td>10.10.40.19</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?737b490ff839d7c6</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:42</td>
+      <td>10.10.40.28</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?affdc558899ed0f7</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:42</td>
+      <td>10.10.40.28</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?3d2562a49293644a</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:38</td>
+      <td>10.10.30.57</td>
+      <td>Google.Play</td>
+      <td>android.clients.google.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>General.Interest: Google.Play</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:38</td>
+      <td>10.10.30.57</td>
+      <td>Google.Play</td>
+      <td>android.clients.google.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>General.Interest: Google.Play</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:34</td>
+      <td>10.10.40.27</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?70730709b6a47895</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:34</td>
+      <td>10.10.40.27</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?31b09193ffa005ec</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:28</td>
+      <td>10.10.30.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>settings-win.data.microsoft.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:22</td>
+      <td>192.168.29.189</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>sls.update.microsoft.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:18</td>
+      <td>10.10.30.57</td>
+      <td>Google.Play</td>
+      <td>android.clients.google.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>General.Interest: Google.Play</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:18</td>
+      <td>10.10.30.57</td>
+      <td>Google.Play</td>
+      <td>android.clients.google.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>General.Interest: Google.Play</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:16</td>
+      <td>10.10.40.28</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?d674090da334bf70</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:16</td>
+      <td>10.10.40.28</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?69e1c38620bab472</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:12</td>
+      <td>10.10.40.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?35e7de194744c21a</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:09</td>
+      <td>10.10.40.53</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?b3226d2cf8cc1e8d</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:08</td>
+      <td>10.10.40.53</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?f48864888dd4d340</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:07</td>
+      <td>10.10.30.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?c6bc443edd5c3ce9</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:14:06</td>
+      <td>10.10.30.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?b7da1be29662c7f7</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:59</td>
+      <td>10.10.40.27</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>sls.update.microsoft.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:42</td>
+      <td>10.10.40.28</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>sls.update.microsoft.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:38</td>
+      <td>10.10.40.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>sls.update.microsoft.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:34</td>
+      <td>10.10.40.27</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?272a73405f2ce62a</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:33</td>
+      <td>10.10.40.27</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?3175ad49f6af57cd</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:26</td>
+      <td>192.168.29.99</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?d50ecee5d8984719</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:26</td>
+      <td>192.168.29.99</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?6b434cd27db5c4e4</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:18</td>
+      <td>10.10.40.15</td>
+      <td>Google.Play</td>
+      <td>android.clients.google.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>General.Interest: Google.Play</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:18</td>
+      <td>10.10.40.15</td>
+      <td>Google.Play</td>
+      <td>android.clients.google.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>General.Interest: Google.Play</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:15</td>
+      <td>10.10.40.28</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?852b21ea109fef38</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:14</td>
+      <td>10.10.40.28</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?09315dd9636901d1</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:08</td>
+      <td>10.10.40.53</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?529de3e7363eb694</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:07</td>
+      <td>10.10.30.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?4199a814400fbf4a</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:13:06</td>
+      <td>10.10.30.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?10b1a79b45858329</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:59</td>
+      <td>10.10.40.15</td>
+      <td>Google.Play</td>
+      <td>android.clients.google.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>General.Interest: Google.Play</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:59</td>
+      <td>10.10.40.15</td>
+      <td>Google.Play</td>
+      <td>android.clients.google.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>General.Interest: Google.Play</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:56</td>
+      <td>192.168.29.189</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>sls.update.microsoft.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:35</td>
+      <td>10.10.40.27</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?6cfdf445a694b081</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:34</td>
+      <td>10.10.40.27</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?56fb5c33abd20f54</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:26</td>
+      <td>192.168.29.99</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?73489143c00d9c41</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:25</td>
+      <td>192.168.29.99</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?8c64152faebbf634</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:24</td>
+      <td>192.168.29.99</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?361d2b2680110193</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:23</td>
+      <td>192.168.29.99</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?c89d243db133bac6</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:23</td>
+      <td>10.10.30.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?0b6a31c884155842</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:22</td>
+      <td>192.168.29.189</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>sls.update.microsoft.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:18</td>
+      <td>10.10.40.37</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?e842d5822fedc0e2</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:17</td>
+      <td>10.10.40.37</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?188f670615947ade</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:09</td>
+      <td>192.168.29.189</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/pinrulesstl.cab?99f53ce8406f18e7</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:08</td>
+      <td>192.168.29.189</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?f9c39035579af48b</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:12:06</td>
+      <td>10.10.30.20</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>ctldl.windowsupdate.com</td>
+      <td>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?72d237072793b437</td>
+      <td>elevated</td>
+      <td>HTTP</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+    <tr>
+      <td>2025-12-08 09:11:55</td>
+      <td>10.10.40.27</td>
+      <td>Microsoft.Windows.Update</td>
+      <td>sls.update.microsoft.com</td>
+      <td>/</td>
+      <td>elevated</td>
+      <td>SSL</td>
+      <td>Update: Microsoft.Windows.Update</td>
+    </tr>
+  </tbody>
+</table>
+
+        <footer>
+            FortiGate Application Control Daily Report • YESTERDAY's Data • Generated on 2025-12-09 11:08
+        </footer>
+    </div>
+    </body>
+    </html>
+    
