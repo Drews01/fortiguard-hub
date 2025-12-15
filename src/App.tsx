@@ -31,6 +31,7 @@ const App = () => (
               <Route path="/webfilter" element={<Navigate to="/reports/webfilter" replace />} />
               <Route path="/ips" element={<Navigate to="/reports/ips" replace />} />
               <Route path="/dns" element={<Navigate to="/reports/dns" replace />} />
+              <Route path="/antivirus" element={<Navigate to="/reports/antivirus" replace />} />
 
               <Route path="*" element={<NotFound />} />
             </Routes>

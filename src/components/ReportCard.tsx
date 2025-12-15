@@ -44,6 +44,7 @@ export function ReportCard({ type }: ReportCardProps) {
     webfilter: 'bg-webfilter text-webfilter-foreground hover:bg-webfilter/90',
     ips: 'bg-ips text-ips-foreground hover:bg-ips/90',
     dns: 'bg-dns text-dns-foreground hover:bg-dns/90',
+    antivirus: 'bg-antivirus text-antivirus-foreground hover:bg-antivirus/90',
   };
 
   const borderClasses = {
@@ -51,6 +52,7 @@ export function ReportCard({ type }: ReportCardProps) {
     webfilter: 'border-webfilter/30',
     ips: 'border-ips/30',
     dns: 'border-dns/30',
+    antivirus: 'border-antivirus/30',
   };
 
   const iconBgClasses = {
@@ -58,10 +60,11 @@ export function ReportCard({ type }: ReportCardProps) {
     webfilter: 'bg-webfilter/10 text-webfilter',
     ips: 'bg-ips/10 text-ips',
     dns: 'bg-dns/10 text-dns',
+    antivirus: 'bg-antivirus/10 text-antivirus',
   };
 
   return (
-    <Card className={cn('relative overflow-hidden transition-all hover:shadow-lg', borderClasses[type])}>
+    <Card className={cn('relative overflow-hidden transition-all hover:shadow-lg flex flex-col', borderClasses[type])}>
       <div className={cn('absolute top-0 left-0 right-0 h-1', colorClasses[type].split(' ')[0])} />
       
       <CardHeader className="pb-3">
@@ -74,7 +77,7 @@ export function ReportCard({ type }: ReportCardProps) {
         <CardDescription className="text-sm">{metadata.description}</CardDescription>
       </CardHeader>
 
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-4 flex flex-col flex-grow">
         {loading ? (
           <div className="space-y-3">
             <Skeleton className="h-4 w-full" />

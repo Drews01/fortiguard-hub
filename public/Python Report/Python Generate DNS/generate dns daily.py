@@ -2,6 +2,7 @@
 import pandas as pd
 import re
 from pathlib import Path
+import json
 from datetime import datetime, timedelta
 
 BASE_FOLDER = Path(__file__).parent
@@ -72,34 +73,38 @@ with open(log_file, 'r', encoding='utf-8', errors='ignore') as f:
             logs.append(p)
 
 df = pd.DataFrame(logs)
-df['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'], errors='coerce')
-df = df.dropna(subset=['datetime'])
+df['datetime'] = pd.to_datetime(df.get('date', '') + ' ' + df.get('time', ''), errors='coerce')
+df = df.dropna(subset=['datetime']).sort_values('datetime')
 
-# Only DNS threat events
-threats = df[df['logid'] == "1501054802"].copy()
-threats['qname'] = threats.get('qname', '').str.lower()
-threats['action'] = threats.get('action', 'pass')
-threats['cat'] = threats.get('cat', '0')
-threats['catdesc'] = threats.get('catdesc', 'Unknown')
+# Normalize fields
+df['qname'] = df.get('qname', '').str.lower()
+df['qtype'] = df.get('qtype', df.get('type', 'N/A'))
+df['action'] = df.get('action', 'pass')
+df['cat'] = df.get('cat', '0')
+df['catdesc'] = df.get('catdesc', df.get('category', 'Unknown'))
+# Destination IP: sometimes 'dstip', 'dst', 'destip'
+df['destip'] = df.get('dstip', df.get('dst', df.get('destip', 'N/A')))
 
-# Category mapping
+# Category mapping (common FortiGuard DNS categories)
 cat_map = {
     "62": "Phishing", "63": "Malicious Websites", "64": "Newly Observed Domain",
     "65": "Newly Registered Domain", "66": "Dynamic DNS", "67": "Spam URLs",
     "68": "Gambling", "69": "Pornography"
 }
-threats['category'] = threats['cat'].map(cat_map).fillna("Other")
+df['category'] = df['cat'].map(cat_map).fillna("Other")
 
-# Filter notable threats
-notable = threats[threats['category'].isin(cat_map.values())]
+# Focus on notable threats where category is known or action is blocked/deny
+notable = df[(df['category'] != 'Other') | (df['action'].isin(['blocked','block','deny']))].copy()
 
 cat_counts = notable['category'].value_counts()
 domain_counts = notable['qname'].value_counts().head(10)
+top_src_ips = notable.get('srcip', pd.Series()).value_counts().head(10)
 
-# Pie chart data
+# Pie chart data (use json.dumps for safety)
+import json
 top8 = cat_counts.head(8)
-pie_labels = ", ".join([f"'{c}<br>{v:,}'" for c, v in top8.items()])
-pie_values = ", ".join(str(v) for v in top8.values)
+pie_labels = json.dumps([f"{c}<br>{v:,}" for c, v in top8.items()])
+pie_values = json.dumps([int(v) for v in top8.values])
 
 # Output file with YESTERDAY's date
 output_file = OUTPUT_FOLDER / f"DNS_Events_Report_{target_date.strftime('%Y%m%d')}.html"
@@ -131,7 +136,7 @@ html = f"""
     </p>
     <div class="stats">
         <b>Log File:</b> {log_file.name}<br>
-        <b>Total Threat Events:</b> {len(threats):,}<br>
+        <b>Total Threat Events:</b> {len(df):,}<br>
         <b>Notable Malicious Events:</b> <span style="color:#e74c3c; font-size:1.5em;">{len(notable):,}</span>
     </div>
 
@@ -154,10 +159,46 @@ html = f"""
         </div>
     </div>
 
+    <h2 style="margin-top:50px;">Top Source IPs (Notable)</h2>
+    <table>
+        <tr><th>Source IP</th><th>Count</th></tr>
+        {''.join(f"<tr><td>{ip}</td><td>{c:,}</td></tr>" for ip,c in top_src_ips.items())}
+    </table>
+
+    <h2 style="margin-top:50px; color:#c0392b;">Detailed DNS Events (Most Recent 200)</h2>
+    <table style="font-size:0.92em; width:100%; table-layout:fixed; border-collapse:collapse;">
+        <tr style="background:#e74c3c; color:white;">
+            <th width="135">Date & Time</th>
+            <th width="110">Source IP</th>
+            <th width="110">Destination IP</th>
+            <th width="260">Query Name (qname)</th>
+            <th width="90">QType</th>
+            <th width="120">Category</th>
+            <th width="90">Action</th>
+            <th width="120">Response</th>
+        </tr>
+        {''.join(
+            f"<tr style='height:48px;'>"
+            f"<td style='white-space:nowrap; line-height:1.2; vertical-align:top;'>"
+            f"  <div><b>{row['datetime'].strftime('%d %b %Y')}</b></div>"
+            f"  <div style='color:#7f8c8d; font-size:0.9em;'>{row['datetime'].strftime('%H:%M:%S')}</div>"
+            f"</td>"
+            f"<td style='font-family:consolas; vertical-align:top;'>{row.get('srcip','N/A')}</td>"
+            f"<td style='font-family:consolas; vertical-align:top;'>{row.get('destip','N/A')}</td>"
+            f"<td style='word-break:break-all; font-size:0.95em; vertical-align:top;' title='{row.get('qname','')}'>{row.get('qname','')[:60]}{'...' if len(str(row.get('qname',''))) > 60 else ''}</td>"
+            f"<td style='vertical-align:top;'>{row.get('qtype','N/A')}</td>"
+            f"<td style='vertical-align:top;'>{row.get('category','Other')}</td>"
+            f"<td style='text-align:center; vertical-align:middle;'><span style='background:#c0392b; color:white; padding:4px 10px; border-radius:6px; font-weight:bold;'>{str(row.get('action','')).upper()}</span></td>"
+            f"<td style='vertical-align:top;'>{row.get('rcode', row.get('response', ''))}</td>"
+            f"</tr>"
+            for _, row in notable.sort_values('datetime', ascending=False).head(200).iterrows()
+        )}
+    </table>
+
     <script>
         new Chart(document.getElementById('pie'), {{
             type: 'pie',
-            data: {{ labels: [{pie_labels}], datasets: [{{ data: [{pie_values}], 
+            data: {{ labels: {pie_labels}, datasets: [{{ data: {pie_values}, 
                 backgroundColor: ['#e74c3c','#e67e22','#f1c40f','#27ae60','#3498db','#9b59b6','#1abc9c','#34495e'] }}] }},
             options: {{ responsive:true, plugins:{{legend:{{position:'right'}}}} }}
         }});

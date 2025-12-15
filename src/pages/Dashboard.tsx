@@ -26,7 +26,7 @@ function generateAvailableMonths(count = 18, startOffset = 1) {
 
 const API_BASE = 'http://127.0.0.1:8000/api';
 
-const reportTypes: ReportType[] = ['appctrl', 'webfilter', 'ips', 'dns'];
+const reportTypes: ReportType[] = ['appctrl', 'webfilter', 'ips', 'dns', 'antivirus'];
 
 function UploadCard() {
   const [type, setType] = useState<ReportType | undefined>('webfilter');
@@ -102,6 +102,7 @@ function UploadCard() {
             <SelectContent>
               <SelectItem value="webfilter">Web Filter</SelectItem>
               <SelectItem value="dns">DNS</SelectItem>
+              <SelectItem value="antivirus">Antivirus</SelectItem>
               <SelectItem value="ips">IPS</SelectItem>
               <SelectItem value="appctrl">Application Control</SelectItem>
             </SelectContent>
@@ -111,7 +112,7 @@ function UploadCard() {
             <DatePicker date={selectedDate} onDateChange={setSelectedDate} />
           </div>
 
-          <div className="text-sm text-muted-foreground">Will be saved as: <span className="font-mono">{type && selectedDate ? `${({appctrl:'disk-appctrl-',webfilter:'disk-webfilter-',ips:'disk-ips-',dns:'disk-dns-' } as any)[type]}${selectedDate ? format(selectedDate,'yyyy_MM_dd') : 'YYYY_MM_DD'}.log` : '—'}</span></div>
+          <div className="text-sm text-muted-foreground">Will be saved as: <span className="font-mono">{type && selectedDate ? `${({appctrl:'disk-appctrl-',webfilter:'disk-webfilter-',ips:'disk-ips-',dns:'disk-dns-',antivirus:'disk-antivirus-' } as any)[type]}${selectedDate ? format(selectedDate,'yyyy_MM_dd') : 'YYYY_MM_DD'}.log` : '—'}</span></div>
 
           <div className="flex items-center gap-3">
             <input id="raw-upload-input" type="file" accept=".log,.txt" onChange={handleFileChange} className="hidden" />
@@ -204,6 +205,7 @@ function GenerateCard() {
               <SelectItem value="dns">DNS</SelectItem>
               <SelectItem value="ips">IPS</SelectItem>
               <SelectItem value="appctrl">Application Control</SelectItem>
+              <SelectItem value="antivirus">Antivirus</SelectItem>
             </SelectContent>
           </Select>
 
@@ -245,7 +247,7 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container py-8">
+      <div className="mx-auto w-full max-w-[1300px] px-4 py-8">
         {/* Header */}
         <div className="mb-8">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -270,7 +272,7 @@ export default function Dashboard() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Total Report Types</p>
-              <p className="text-2xl font-bold">4</p>
+              <p className="text-2xl font-bold">{reportTypes.length}</p>
             </div>
           </div>
           <div className="flex items-center gap-4 rounded-lg border bg-card p-4">
@@ -294,7 +296,7 @@ export default function Dashboard() {
         </div>
 
         {/* Report Cards */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 auto-rows-fr">
           {reportTypes.map((type) => (
             <ReportCard key={type} type={type} />
           ))}

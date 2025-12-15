@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils';
 interface ReportViewerProps {
   path: string | null;
   filename: string;
-  type: 'appctrl' | 'webfilter' | 'ips' | 'dns';
+  type: 'appctrl' | 'webfilter' | 'ips' | 'dns' | 'antivirus';
 }
 
 const DEMO_HTML = `
@@ -119,6 +119,7 @@ export function ReportViewer({ path, filename, type }: ReportViewerProps) {
     webfilter: 'border-webfilter/30',
     ips: 'border-ips/30',
     dns: 'border-dns/30',
+    antivirus: 'border-antivirus/30',
   };
 
   if (!path) {

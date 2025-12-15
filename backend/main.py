@@ -56,6 +56,13 @@ REPORT_CONFIG = {
         "daily_prefix": "DNS_Events_Report_",
         "monthly_prefix": "DNS_Monthly_Report_"
     },
+    "antivirus": {
+        "folder": "Python Generate Antivirus",
+        "daily_script": "generate antivirus daily.py",
+        "monthly_script": "generate antivirus monthly.py",
+        "daily_prefix": "AV_Infected_Report_",
+        "monthly_prefix": "AV_Monthly_Report_"
+    },
 }
 
 def get_files(folder_path: Path, prefix: str):
@@ -171,6 +178,7 @@ async def upload_raw_log(rtype: str, file: UploadFile = File(...), selectedDate:
         "webfilter": "disk-webfilter-",
         "ips": "disk-ips-",
         "dns": "disk-dns-",
+        "antivirus": "disk-antivirus-",
     }
     prefix = prefix_map.get(rtype, "upload-")
     date_str = picked.strftime("%Y_%m_%d")

@@ -7,9 +7,9 @@ export default {
   theme: {
   	container: {
   		center: true,
-  		padding: '2rem',
+  		padding: '1rem',
   		screens: {
-  			'2xl': '1400px'
+  			'2xl': '1600px'
   		}
   	},
   	extend: {
@@ -73,6 +73,10 @@ export default {
   				DEFAULT: 'hsl(var(--dns))',
   				foreground: 'hsl(var(--dns-foreground))'
   			}
+			,antivirus: {
+				DEFAULT: 'hsl(var(--antivirus))',
+				foreground: 'hsl(var(--antivirus-foreground))'
+			}
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

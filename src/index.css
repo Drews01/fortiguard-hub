@@ -49,6 +49,8 @@ All colors MUST be HSL.
     --ips-foreground: 0 0% 100%;
     --dns: 145 65% 40%;
     --dns-foreground: 0 0% 100%;
+    --antivirus: 48 95% 45%;
+    --antivirus-foreground: 220 10% 10%;
 
     --sidebar-background: 220 25% 12%;
     --sidebar-foreground: 220 10% 90%;
@@ -122,6 +124,8 @@ All colors MUST be HSL.
     --ips-foreground: 0 0% 100%;
     --dns: 145 70% 45%;
     --dns-foreground: 0 0% 100%;
+    --antivirus: 48 95% 55%;
+    --antivirus-foreground: 220 10% 95%;
 
     --sidebar-background: 220 25% 6%;
     --sidebar-foreground: 220 10% 90%;

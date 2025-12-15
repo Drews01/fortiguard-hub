@@ -1,4 +1,4 @@
-export type ReportType = 'appctrl' | 'webfilter' | 'ips' | 'dns';
+export type ReportType = 'appctrl' | 'webfilter' | 'ips' | 'dns' | 'antivirus';
 
 export interface ReportMetadata {
   type: ReportType;
@@ -31,21 +31,21 @@ export const REPORT_TYPES: Record<ReportType, ReportMetadata> = {
   appctrl: {
     type: 'appctrl',
     label: 'Application Control',
-    description: 'Monitor and control application usage across your network',
+    description: 'Monitor and control application',
     color: 'appctrl',
     icon: 'Shield',
   },
   webfilter: {
     type: 'webfilter',
     label: 'Web Filter',
-    description: 'Track web browsing patterns and blocked websites',
+    description: 'Track web browsing and blocked websites',
     color: 'webfilter',
     icon: 'Globe',
   },
   ips: {
     type: 'ips',
     label: 'IPS',
-    description: 'Intrusion Prevention System alerts and blocked threats',
+    description: 'Intrusion Prevention System',
     color: 'ips',
     icon: 'AlertTriangle',
   },
@@ -55,5 +55,12 @@ export const REPORT_TYPES: Record<ReportType, ReportMetadata> = {
     description: 'DNS query logs and filtered domain requests',
     color: 'dns',
     icon: 'Server',
+  },
+  antivirus: {
+    type: 'antivirus',
+    label: 'Antivirus',
+    description: 'Antivirus events and detections',
+    color: 'antivirus',
+    icon: 'Shield',
   },
 };
