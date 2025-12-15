@@ -3,13 +3,21 @@ import { Maximize2, Minimize2, Download, ExternalLink, FileX } from 'lucide-reac
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
-import { getReportFileUrl, downloadReport } from '@/lib/api';
+import { getReportFileUrl, downloadReport, generateReport, checkRawLog } from '@/lib/api';
 import { cn } from '@/lib/utils';
 
 interface ReportViewerProps {
   path: string | null;
   filename: string;
   type: 'appctrl' | 'webfilter' | 'ips' | 'dns' | 'antivirus';
+  // optional: whether this viewer is for daily or monthly generation
+  mode?: 'daily' | 'monthly';
+  // selected date/month formatted for generation (daily: YYYY_MM_DD, monthly: YYYY-MM or YYYYMM)
+  selectedDate?: string | null;
+  // callback invoked after generation starts/completes so parent can refresh lists
+  onGenerated?: () => void;
+  // optional: for monthly generation, whether daily source reports exist for selected month
+  hasMonthlySource?: boolean;
 }
 
 const DEMO_HTML = `
@@ -89,10 +97,47 @@ const DEMO_HTML = `
 </html>
 `;
 
-export function ReportViewer({ path, filename, type }: ReportViewerProps) {
+export function ReportViewer({ path, filename, type, mode, selectedDate, onGenerated }: ReportViewerProps) {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [genLoading, setGenLoading] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  const handleGenerate = async () => {
+    if (!mode) return alert('Missing mode for generation');
+    setGenLoading(true);
+    try {
+      // Validate source data
+      if (mode === 'monthly') {
+        if (typeof (arguments as any) !== 'undefined' && (typeof (arguments as any) === 'object')) {}
+        if (!((hasMonthlySource as boolean) ?? true)) {
+          alert("Report can't be generated because there is no data for the selected month");
+          return;
+        }
+      }
+      if (mode === 'daily') {
+        // selectedDate expected in YYYY_MM_DD format
+        if (!selectedDate) {
+          alert("Please select a date to generate the daily report.");
+          return;
+        }
+        const hasRaw = await checkRawLog(type, selectedDate);
+        if (!hasRaw) {
+          alert("Report can't be generated because there is no data for the selected date");
+          return;
+        }
+      }
+
+      await generateReport(mode, type, selectedDate || undefined);
+      // let parent refresh lists
+      onGenerated?.();
+      alert('Generation started — check error_logs for progress');
+    } catch (e) {
+      alert('Failed to start generation. See console for details.');
+    } finally {
+      setGenLoading(false);
+    }
+  };
 
   const reportUrl = path ? getReportFileUrl(path) : '';
   const isDemo = !reportUrl;
@@ -124,13 +169,16 @@ export function ReportViewer({ path, filename, type }: ReportViewerProps) {
 
   if (!path) {
     return (
-      <Card className="flex h-[600px] flex-col items-center justify-center gap-4 border-dashed">
+      <Card className="flex h-[420px] flex-col items-center justify-center gap-4 border-dashed px-6 py-8">
         <FileX className="h-16 w-16 text-muted-foreground/50" />
         <div className="text-center">
           <h3 className="text-lg font-semibold">The report not generated</h3>
-          <p className="text-sm text-muted-foreground">
-            This report has not been generated yet. Please generate it first.
-          </p>
+          <p className="text-sm text-muted-foreground">This report has not been generated yet.</p>
+          <div className="mt-4 flex items-center justify-center gap-3">
+            <Button onClick={handleGenerate} disabled={genLoading || !mode}>
+              {genLoading ? 'Starting...' : mode === 'daily' ? 'Generate Daily Report' : 'Generate Monthly Report'}
+            </Button>
+          </div>
         </div>
       </Card>
     );

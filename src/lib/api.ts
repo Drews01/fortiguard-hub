@@ -127,3 +127,36 @@ export async function downloadReport(path: string, filename: string): Promise<vo
     console.error('Error downloading report:', error);
   }
 }
+
+export async function generateReport(
+  mode: 'daily' | 'monthly',
+  type: ReportType,
+  selectedDate?: string
+): Promise<any> {
+  const form = new FormData();
+  if (selectedDate) form.append('selectedDate', selectedDate);
+
+  try {
+    const res = await fetch(`${API_BASE}/generate/${mode}/${type}`, {
+      method: 'POST',
+      body: form,
+    });
+    if (!res.ok) throw new Error('Failed to start generation');
+    return res.json();
+  } catch (err) {
+    console.error('Error generating report:', err);
+    throw err;
+  }
+}
+
+export async function checkRawLog(type: ReportType, dateYmd: string): Promise<boolean> {
+  try {
+    const resp = await fetch(`${API_BASE}/check_raw/${type}?date=${encodeURIComponent(dateYmd)}`);
+    if (!resp.ok) throw new Error('Failed to check raw log');
+    const json = await resp.json();
+    return !!json.exists;
+  } catch (err) {
+    console.error('Error checking raw log:', err);
+    return false;
+  }
+}

@@ -3,7 +3,13 @@ import sys
 import pandas as pd
 from pathlib import Path
 from datetime import datetime
-import matplotlib.pyplot as plt
+try:
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+except Exception as e:
+    print(f"Error importing matplotlib or setting backend: {e}")
+    raise
 from bs4 import BeautifulSoup
 import re
 import base64
@@ -13,7 +19,7 @@ from io import BytesIO
 BASE_FOLDER = Path(__file__).parent
 DAILY_REPORTS_FOLDER = BASE_FOLDER / "daily_reports"
 MONTHLY_OUTPUT_FOLDER = BASE_FOLDER / "monthly_reports"
-MONTHLY_OUTPUT_FOLDER.mkdir(exist_ok=True)
+MONTHLY_OUTPUT_FOLDER.mkdir(parents=True, exist_ok=True)
 
 def get_month_from_user():
     print("\n" + "="*60)
@@ -84,7 +90,7 @@ def generate_monthly_report():
             pass
         return
 
-    print(f"Found {len(files)} daily reports → compiling {month_name}...")
+    print(f"Found {len(files)} daily reports -> compiling {month_name}...")
 
     dfs = [extract_blocked_events(f) for f in files]
     df = pd.concat(dfs, ignore_index=True) if dfs else pd.DataFrame()
@@ -155,8 +161,8 @@ def generate_monthly_report():
     report_file.write_text(html, encoding='utf-8')
     print("\n" + "="*70)
     print(f"SUCCESS! Monthly report updated")
-    print(f"→ {report_file}")
-    print(f"→ Total blocked: {total:,}")
+    print(f"-> {report_file}")
+    print(f"-> Total blocked: {total:,}")
     print("   (Old report overwritten, no PNG file created)")
     print("="*70)
     try:

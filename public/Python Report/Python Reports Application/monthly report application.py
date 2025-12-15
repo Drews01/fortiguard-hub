@@ -3,7 +3,13 @@ import sys
 import pandas as pd
 from pathlib import Path
 from datetime import datetime
-import matplotlib.pyplot as plt
+try:
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+except Exception as e:
+    print(f"Error importing matplotlib or setting backend: {e}")
+    raise
 import base64
 from io import BytesIO
 from bs4 import BeautifulSoup
@@ -14,7 +20,7 @@ os.system("")  # Enable colors/UTF-8 in Windows terminal
 BASE_FOLDER = Path(__file__).parent
 DAILY_REPORTS_FOLDER = BASE_FOLDER / "daily_reports"
 MONTHLY_OUTPUT = BASE_FOLDER / "monthly_reports"
-MONTHLY_OUTPUT.mkdir(exist_ok=True)
+MONTHLY_OUTPUT.mkdir(parents=True, exist_ok=True)
 
 def get_month_from_user():
     print("\n" + "═" * 76)
@@ -109,7 +115,7 @@ def main():
             pass
         return
 
-    print(f"\nFound {len(daily_files)} daily reports → compiling {month_name}...\n")
+    print(f"\nFound {len(daily_files)} daily reports -> compiling {month_name}...\n")
 
     all_dataframes = []
     for file in daily_files:
@@ -245,11 +251,11 @@ def main():
 </div></body></html>"""
 
     report_file.write_text(html, encoding="utf-8")
-    print("\n" + "═" * 80)
+    print("\n" + "=" * 80)
     print("MONTHLY REPORT SUCCESSFULLY CREATED!")
-    print(f"→ {report_file.name}")
-    print(f"→ {total_blocked:,} blocked events from {len(daily_files)} daily reports")
-    print("═" * 80)
+    print(f"-> {report_file.name}")
+    print(f"-> {total_blocked:,} blocked events from {len(daily_files)} daily reports")
+    print("=" * 80)
     try:
         if sys.stdin and sys.stdin.isatty():
             input("\nPress Enter to finish...")

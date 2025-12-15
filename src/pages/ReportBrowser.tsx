@@ -81,6 +81,9 @@ export default function ReportBrowser() {
     ? monthlyReports.find((r) => r.month === selectedMonth)
     : null;
 
+  // Determine if there is source daily data for the selected month (used before attempting monthly generation)
+  const hasMonthlySource = !!(selectedMonth && dailyReports.some((r) => r.date.startsWith(selectedMonth)));
+
   return (
     <div className="min-h-screen bg-background">
       <div className="container py-8">
@@ -145,6 +148,15 @@ export default function ReportBrowser() {
               path={selectedDailyReport?.path || null}
               filename={selectedDailyReport?.filename || ''}
               type={type}
+              mode="daily"
+              selectedDate={selectedDate ? format(selectedDate, 'yyyy_MM_dd') : undefined}
+              onGenerated={async () => {
+                setLoading(true);
+                const [d, m] = await Promise.all([fetchDailyReports(type), fetchMonthlyReports(type)]);
+                setDailyReports(d);
+                setMonthlyReports(m);
+                setLoading(false);
+              }}
             />
           </TabsContent>
 
@@ -172,6 +184,16 @@ export default function ReportBrowser() {
               path={selectedMonthlyReport?.path || null}
               filename={selectedMonthlyReport?.filename || ''}
               type={type}
+              mode="monthly"
+              selectedDate={selectedMonth}
+              hasMonthlySource={hasMonthlySource}
+              onGenerated={async () => {
+                setLoading(true);
+                const [d, m] = await Promise.all([fetchDailyReports(type), fetchMonthlyReports(type)]);
+                setDailyReports(d);
+                setMonthlyReports(m);
+                setLoading(false);
+              }}
             />
           </TabsContent>
         </Tabs>

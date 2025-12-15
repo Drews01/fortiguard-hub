@@ -4,7 +4,13 @@ import sys
 import pandas as pd
 from pathlib import Path
 from datetime import datetime
-import matplotlib.pyplot as plt
+try:
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+except Exception as e:
+    print(f"Error importing matplotlib or setting backend: {e}")
+    raise
 import base64
 from io import BytesIO
 from bs4 import BeautifulSoup
@@ -16,12 +22,12 @@ os.system("")  # Enable colors in Windows terminal
 BASE_FOLDER = Path(__file__).parent
 DAILY_REPORTS_FOLDER = BASE_FOLDER / "daily_reports"
 MONTHLY_OUTPUT = BASE_FOLDER / "monthly_reports"
-MONTHLY_OUTPUT.mkdir(exist_ok=True)
+MONTHLY_OUTPUT.mkdir(parents=True, exist_ok=True)
 
 def get_month_from_user():
-    print("\n" + "═" * 82)
-    print("   FORTIGATE IPS – MONTHLY CRITICAL EVENTS RECAP")
-    print("═" * 82)
+    print("\n" + "=" * 82)
+    print("   FORTIGATE IPS - MONTHLY CRITICAL EVENTS RECAP")
+    print("=" * 82)
     print("1. Current month    2. Specific month    3. Last month")
     while True:
         c = input("\nChoose (1/2/3) [Enter = current]: ").strip() or "1"
@@ -30,7 +36,8 @@ def get_month_from_user():
         if c == "3":
             now = datetime.now()
             y, m = now.year, now.month - 1
-            if m == 0: m, y = 12, y - 1
+            if m == 0:
+                m, y = 12, y - 1
             return f"{y}{m:02d}"
         if c == "2":
             i = input("Enter YYYYMM (e.g. 202512): ").strip()
@@ -118,7 +125,7 @@ def main():
             input("\nPress Enter to exit...")
         return
 
-    print(f"\nFound {len(daily_files)} daily reports → compiling {month_name}...\n")
+    print(f"\nFound {len(daily_files)} daily reports -> compiling {month_name}...\n")
 
     all_attacks = []
     daily_counts = {}
@@ -213,13 +220,13 @@ def main():
 </html>"""
 
     report_file.write_text(html, encoding="utf-8")
-    print("\n" + "═" * 85)
+    print("\n" + "=" * 85)
     print("IPS MONTHLY REPORT SUCCESSFULLY CREATED!")
     print(f"→ File           : {report_file.name}")
     print(f"→ Month          : {month_name}")
     print(f"→ Total Events   : {total_events:,}")
     print(f"→ Daily Reports  : {len(daily_files)}")
-    print("═" * 85)
+    print("=" * 85)
     if sys.stdin.isatty():
         input("\nPress Enter to finish...")
 

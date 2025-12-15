@@ -1,82 +1,99 @@
-# FortiGate Security Portal - Backend
+# FortiGate Security Portal
 
-This is the Python FastAPI backend for the FortiGate Security Portal.
+A React + Vite frontend with a FastAPI backend to browse FortiGate HTML reports (Application Control, Web Filter, IPS, DNS).
 
-## Quick Start
+## Quickstart — Dependencies & Run
 
-1. **Install Python dependencies:**
-   ```bash
-   cd backend
+Frontend
+1. Install Node.js (v16+) and npm.
+2. From project root:
+   ```sh
+   npm install
+   npm run dev
+   ```
+   - Dev server defaults to port 8080 (see [vite.config.ts](vite.config.ts)).
+   - Frontend scripts are in [package.json](package.json).
+
+Backend
+1. Install Python 3.9+ and pip.
+2. From the `backend` folder:
+   ```sh
    pip install -r requirements.txt
+   uvicorn main:app --reload --host 127.0.0.1 --port 8000
    ```
+   - API server runs on port 8000 (see [backend/main.py](backend/main.py)).
+   - Backend README: [backend/README.md](backend/README.md).
 
-2. **Configure your report paths:**
-   
-   Edit `main.py` and update the `REPORT_PATHS` dictionary with your actual folder paths:
-   
-   ```python
-   REPORT_PATHS = {
-       "appctrl": {
-           "base": r"C:\Your\Actual\Path\AppControl",
-           ...
-       },
-       # ... other report types
-   }
-   ```
+Connecting Frontend ↔ Backend
+- Frontend expects API at `http://127.0.0.1:8000/api` (see [`API_BASE`](src/lib/api.ts)).
+- Demo mode: set [`DEMO_MODE`](src/lib/api.ts) to `false` to enable backend integration. See [`getReportFileUrl`](src/lib/api.ts) and [`downloadReport`](src/lib/api.ts).
 
-3. **Run the server:**
-   ```bash
-   uvicorn main:app --reload --host 127.0.0.1 --port 8000 ## For BackEnd
-   python -m uvicorn main:app --reload --port 8000 ##For Backend
-   npm run dev ## For FrontEnd
-   ```
+## Ports
 
-4. **Enable the frontend connection:**
-   
-   In `src/lib/api.ts`, change:
-   ```typescript
-   const DEMO_MODE = false;  // Was true
-   ```
+- Frontend dev server: 8080 — configured in [vite.config.ts](vite.config.ts).
+- Backend API: 8000 — configured when running uvicorn and used by frontend via [`API_BASE`](src/lib/api.ts).
+- CORS allowed origins configured in [backend/main.py](backend/main.py).
 
-## API Endpoints
+## Folder / File Overview
 
-| Endpoint | Description |
-|----------|-------------|
-| `GET /` | Health check |
-| `GET /api/reports/{type}/daily` | List daily reports |
-| `GET /api/reports/{type}/monthly` | List monthly reports |
-| `GET /api/file?path=...` | Serve HTML file |
-| `GET /api/summary/{type}` | Get report summary |
+- [src/](src/) — React frontend source
+  - [src/main.tsx](src/main.tsx) — app entry.
+  - [src/App.tsx](src/App.tsx) — router and top-level providers.
+  - [src/pages/](src/pages/) — page views
+    - [src/pages/Dashboard.tsx](src/pages/Dashboard.tsx) — main dashboard.
+    - [src/pages/ReportBrowser.tsx](src/pages/ReportBrowser.tsx) — list/select reports.
+    - [src/pages/NotFound.tsx](src/pages/NotFound.tsx) — 404 page.
+  - [src/components/](src/components/) — UI components
+    - [src/components/ReportCard.tsx](src/components/ReportCard.tsx) — summary cards on dashboard.
+    - [src/components/ReportViewer.tsx](src/components/ReportViewer.tsx) — iframe preview + download/fullscreen.
+    - [src/components/DatePicker.tsx](src/components/DatePicker.tsx) — date picker used in report browser.
+  - [src/lib/](src/lib/) — app utilities & API helpers
+    - [src/lib/api.ts](src/lib/api.ts) — frontend API helpers: [`fetchDailyReports`](src/lib/api.ts), [`fetchMonthlyReports`](src/lib/api.ts), [`fetchReportSummary`](src/lib/api.ts), [`getReportFileUrl`](src/lib/api.ts), [`downloadReport`](src/lib/api.ts), and [`DEMO_MODE`](src/lib/api.ts).
+    - [src/lib/types.ts](src/lib/types.ts) — shared TypeScript types like `ReportType`.
+  - [src/components/ui/](src/components/ui/) — shared primitives (Radix wrappers, toaster, popover, etc.)
+  - [src/index.css](src/index.css) — global styles and design tokens.
+- [backend/](backend/) — FastAPI server
+  - [backend/main.py](backend/main.py) — endpoints:
+    - [`get_daily_reports`](backend/main.py) — lists daily files.
+    - [`get_monthly_reports`](backend/main.py) — lists monthly files.
+    - [`get_file`](backend/main.py) — serves HTML file securely.
+    - [`get_report_summary`](backend/main.py) — aggregated counts.
+    - Security helpers: [`get_allowed_paths`](backend/main.py), [`is_path_allowed`](backend/main.py).
+  - [backend/requirements.txt](backend/requirements.txt) — Python dependencies.
+  - [backend/README.md](backend/README.md) — backend setup docs.
 
-Where `{type}` is one of: `appctrl`, `webfilter`, `ips`, `dns`
+Other
+- [public/](public/) — static public assets.
+- [index.html](index.html) — SPA HTML.
+- [tailwind.config.ts](tailwind.config.ts) — Tailwind config.
+- [vite.config.ts](vite.config.ts) — Vite config (port and alias).
+- [eslint.config.js](eslint.config.js), [tsconfig.json](tsconfig.json) — tooling config.
 
-## API Documentation
+## How it works (high level)
 
-Once running, visit: http://127.0.0.1:8000/docs
+- Frontend fetches report lists via functions in [src/lib/api.ts](src/lib/api.ts) (e.g., [`fetchDailyReports`](src/lib/api.ts)).
+- Report files are either served by the backend endpoint [`get_file`](backend/main.py) or demo HTML is shown when [`DEMO_MODE`](src/lib/api.ts) is `true`.
+- Backend scans configured filesystem paths (see `REPORT_PATHS` in [backend/main.py](backend/main.py)) and enforces directory restrictions via [`get_allowed_paths`](backend/main.py) / [`is_path_allowed`](backend/main.py).
 
-## Security
+## Important Notes & Security
 
-- Only serves files from configured directories
-- Prevents directory traversal attacks
-- Only allows .html files
-- Runs on localhost only (127.0.0.1)
+- Backend only serves `.html` files and validates file paths to avoid traversal (see security checks in [backend/main.py](backend/main.py)).
+- Update `REPORT_PATHS` in [backend/main.py](backend/main.py) to match your local FortiGate export directories before running the backend.
+- To enable real data in the frontend, set [`DEMO_MODE`](src/lib/api.ts) to `false` and run the backend.
 
-## Expected File Structure
+## Build / Production
 
-```
-C:\FortiGate\
-├── AppControl\
-│   ├── daily_reports\
-│   │   └── AppCtrl_Blocked_20251208.html
-│   └── monthly_reports\
-│       └── AppCtrl_Monthly_Report_202512.html
-├── WebFilter\
-│   ├── daily_reports\
-│   └── monthly_reports\
-├── IPS\
-│   ├── daily_reports\
-│   └── monthly_reports\
-└── DNS\
-    ├── daily_reports\
-    └── monthly_reports\
-```
+- Frontend: run `npm run build` (see [package.json](package.json)) and deploy the `dist` output to your static hosting.
+- Backend: run `uvicorn main:app --host 0.0.0.0 --port 8000` (or configure a production ASGI server).
+
+## Troubleshooting
+
+- If frontend cannot reach API: ensure backend is running on 127.0.0.1:8000 and [`DEMO_MODE`](src/lib/api.ts) is `false`.
+- Check backend startup logs for missing configured paths (printed by [backend/main.py](backend/main.py) on startup).
+
+## References
+
+- Frontend entry: [src/main.tsx](src/main.tsx)  
+- Frontend router: [src/App.tsx](src/App.tsx)  
+- API helpers: [src/lib/api.ts](src/lib/api.ts) — see [`DEMO_MODE`](src/lib/api.ts) and [`API_BASE`](src/lib/api.ts)  
+- Backend: [backend/main.py](backend/main.py) and [backend/README.md](backend/README.md)

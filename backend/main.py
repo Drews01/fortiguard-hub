@@ -18,7 +18,8 @@ app = FastAPI(title="FortiGate Security Portal API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:5173", "http://localhost:5173"],
+    # allow common dev origins including Vite default (5173) and configured port (8080)
+    allow_origins=["http://127.0.0.1:5173", "http://localhost:5173", "http://127.0.0.1:8080", "http://localhost:8080"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -278,6 +279,27 @@ async def generate_reports(mode: str, rtype: str, background: BackgroundTasks, s
             background.add_task(_run_generator, mode, rtype)
 
     return {"message": "started", "mode": mode, "type": rtype}
+
+
+@app.get("/api/check_raw/{rtype}")
+async def check_raw_log(rtype: str, date: str = Query(..., description="Date in YYYY_MM_DD format")):
+    """Check if a raw log exists for the given rtype and date (YYYY_MM_DD)."""
+    if rtype not in REPORT_CONFIG:
+        raise HTTPException(404, "Invalid report type")
+
+    folder = BASE_DIR / REPORT_CONFIG[rtype]["folder"] / "Raw Logs"
+    # expected filename: disk-<rtype>-YYYY_MM_DD.log
+    prefix_map = {
+        "appctrl": "disk-appctrl-",
+        "webfilter": "disk-webfilter-",
+        "ips": "disk-ips-",
+        "dns": "disk-dns-",
+        "antivirus": "disk-antivirus-",
+    }
+    prefix = prefix_map.get(rtype, "disk-")
+    fname = f"{prefix}{date}.log"
+    file_path = folder / fname
+    return {"exists": file_path.exists()}
 
 @app.on_event("startup")
 async def startup():
